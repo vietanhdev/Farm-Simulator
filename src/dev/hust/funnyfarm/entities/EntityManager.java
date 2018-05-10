@@ -6,12 +6,10 @@ import java.util.Comparator;
 import java.util.Iterator;
 
 import dev.hust.funnyfarm.Handler;
-import dev.hust.funnyfarm.entities.creatures.Player;
 
 public class EntityManager {
 	
 	private Handler handler;
-	private Player player;
 	private ArrayList<Entity> entities;
 	private Comparator<Entity> renderSorter = new Comparator<Entity>(){
 		@Override
@@ -22,11 +20,9 @@ public class EntityManager {
 		}
 	};
 	
-	public EntityManager(Handler handler, Player player){
+	public EntityManager(Handler handler){
 		this.handler = handler;
-		this.player = player;
 		entities = new ArrayList<Entity>();
-		addEntity(player);
 	}
 	
 	public void tick(){
@@ -44,7 +40,6 @@ public class EntityManager {
 		for(Entity e : entities){
 			e.render(g);
 		}
-		player.postRender(g);
 	}
 	
 	public void addEntity(Entity e){
@@ -59,14 +54,6 @@ public class EntityManager {
 
 	public void setHandler(Handler handler) {
 		this.handler = handler;
-	}
-
-	public Player getPlayer() {
-		return player;
-	}
-
-	public void setPlayer(Player player) {
-		this.player = player;
 	}
 
 	public ArrayList<Entity> getEntities() {

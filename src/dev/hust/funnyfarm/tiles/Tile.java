@@ -6,13 +6,12 @@ import java.awt.image.BufferedImage;
 public class Tile {
 	
 	//STATIC STUFF HERE
-	
 	public static Tile[] tiles = new Tile[256];
-	public static Tile grassTile = new GrassTile(0);
-	public static Tile dirtTile = new DirtTile(1);
-	public static Tile rockTile = new RockTile(2);
-	public static Tile waterTile = new WaterTile(3);
-	public static Tile flowerPotTile = new FlowerPotTile(4);
+	public static Tile grassTile = new GrassTile(0, "grass");
+	public static Tile dirtTile = new DirtTile(1, "dirt");
+	public static Tile fenceTile = new FenceTile(2, "fence");
+	public static Tile waterTile = new WaterTile(3, "water");
+	public static Tile flowerPotTile = new FlowerPotTile(4, "flowerpot");
 	
 	//CLASS
 	
@@ -20,10 +19,12 @@ public class Tile {
 	
 	protected BufferedImage texture;
 	protected final int id;
+	protected String name;
 	
-	public Tile(BufferedImage texture, int id){
+	public Tile(BufferedImage texture, int id, String name){
 		this.texture = texture;
 		this.id = id;
+		this.name = name;
 		
 		tiles[id] = this;
 	}
@@ -36,9 +37,11 @@ public class Tile {
 		g.drawImage(texture, x, y, TILEWIDTH, TILEHEIGHT, null);
 	}
 	
-	public boolean isSolid(){
-		return false;
+	
+	public String getName(){
+		return name;
 	}
+
 	
 	public int getId(){
 		return id;

@@ -58,7 +58,7 @@ public class Game implements Runnable {
 		display.getCanvas().addMouseListener(mouseManager);
 		display.getCanvas().addMouseMotionListener(mouseManager);
 		Assets.init();
-		
+
 		
 		// Control Window
 		controlWindow = new ControlWindow();
@@ -70,10 +70,23 @@ public class Game implements Runnable {
 		gameState = new GameState(handler);
 		menuState = new MenuState(handler);
 		State.setState(menuState);
+		
 	}
 	
 	private void tick(){
 		keyManager.tick();
+		
+		if(handler.getKeyManager().up)
+			handler.getGameCamera().move(0, -10);
+		
+		if(handler.getKeyManager().down)
+			handler.getGameCamera().move(0, 10);
+		
+		if(handler.getKeyManager().left)
+			handler.getGameCamera().move(-10, 0);
+		
+		if(handler.getKeyManager().right)
+			handler.getGameCamera().move(10, 0);
 		
 		if(State.getState() != null)
 			State.getState().tick();

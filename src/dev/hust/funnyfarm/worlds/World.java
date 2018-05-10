@@ -4,9 +4,8 @@ import java.awt.Graphics;
 
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.EntityManager;
-import dev.hust.funnyfarm.entities.creatures.Player;
-import dev.hust.funnyfarm.entities.statics.Rock;
-import dev.hust.funnyfarm.entities.statics.Tree;
+import dev.hust.funnyfarm.entities.creatures.animals.*;
+import dev.hust.funnyfarm.entities.statics.Mannequin;
 import dev.hust.funnyfarm.items.ItemManager;
 import dev.hust.funnyfarm.tiles.Tile;
 import dev.hust.funnyfarm.utils.Utils;
@@ -15,7 +14,6 @@ public class World {
 
 	private Handler handler;
 	private int width, height;
-	private int spawnX, spawnY;
 	private int[][] tiles;
 	//Entities
 	private EntityManager entityManager;
@@ -24,18 +22,23 @@ public class World {
 	
 	public World(Handler handler, String path){
 		this.handler = handler;
-		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
+		entityManager = new EntityManager(handler);
+		entityManager.addEntity(new Fish(handler, 90, 90));
+		entityManager.addEntity(new Fish(handler, 164, 164));
+		entityManager.addEntity(new Fish(handler, 240, 240));
+		entityManager.addEntity(new Fish(handler, 500, 500));
+		entityManager.addEntity(new Turtle(handler, 300, 200));
+		
 		itemManager = new ItemManager(handler);
 		
 		// Add static entity into game
-//		entityManager.addEntity(new Tree(handler, 15, 282));
-//		entityManager.addEntity(new Tree(handler, 350, 282));
-//		entityManager.addEntity(new Tree(handler, 765, 282));
+		entityManager.addEntity(new Mannequin(handler, 15, 300));
+		entityManager.addEntity(new Mannequin(handler, 375, 300));
+		entityManager.addEntity(new Mannequin(handler, 750, 300));
+		entityManager.addEntity(new Mannequin(handler, 1100, 300));
 		
 		loadWorld(path);
 		
-		entityManager.getPlayer().setX(spawnX);
-		entityManager.getPlayer().setY(spawnY);
 	}
 	
 	public void tick(){
@@ -76,8 +79,6 @@ public class World {
 		String[] tokens = file.split("\\s+");
 		width = Utils.parseInt(tokens[0]);
 		height = Utils.parseInt(tokens[1]);
-		spawnX = Utils.parseInt(tokens[2]);
-		spawnY = Utils.parseInt(tokens[3]);
 		
 		tiles = new int[width][height];
 		for(int y = 0;y < height;y++){

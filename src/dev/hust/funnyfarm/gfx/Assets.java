@@ -9,10 +9,13 @@ public class Assets {
 	
 	public static Font font28;
 	
-	public static BufferedImage dirt, grass, stone, tree, rock, water, flowerpot;
+	public static BufferedImage dirt, grass, fence, tree, rock, water, flowerpot;
 	public static BufferedImage wood;
-	public static BufferedImage[] player_down, player_up, player_left, player_right;
-	public static BufferedImage[] zombie_down, zombie_up, zombie_left, zombie_right;
+	public static BufferedImage[] fish_down, fish_up, fish_left, fish_right;
+	
+	public static BufferedImage[] turtle_down, turtle_up, turtle_left, turtle_right;
+	public static BufferedImage[] turtle_swim_down, turtle_swim_up, turtle_swim_left, turtle_swim_right;
+	
 	public static BufferedImage[] btn_start;
 	public static BufferedImage inventoryScreen;
 
@@ -21,45 +24,59 @@ public class Assets {
 		
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
 		
-		inventoryScreen = ImageLoader.loadImage("/textures/inventoryScreen.png");
-		
 		wood = sheet.crop(width, height, width, height);
 		
 		btn_start = new BufferedImage[2];
 		btn_start[0] = sheet.crop(width * 6, height * 4, width * 2, height);
 		btn_start[1] = sheet.crop(width * 6, height * 5, width * 2, height);
 		
-		player_down = new BufferedImage[2];
-		player_up = new BufferedImage[2];
-		player_left = new BufferedImage[2];
-		player_right = new BufferedImage[2];
+		fish_down = new BufferedImage[2];
+		fish_up = new BufferedImage[2];
+		fish_left = new BufferedImage[2];
+		fish_right = new BufferedImage[2];
 		
-		player_down[0] = sheet.crop(width * 4, 0, width, height);
-		player_down[1] = sheet.crop(width * 5, 0, width, height);
-		player_up[0] = sheet.crop(width * 6, 0, width, height);
-		player_up[1] = sheet.crop(width * 7, 0, width, height);
-		player_right[0] = sheet.crop(width * 4, height, width, height);
-		player_right[1] = sheet.crop(width * 5, height, width, height);
-		player_left[0] = sheet.crop(width * 6, height, width, height);
-		player_left[1] = sheet.crop(width * 7, height, width, height);
+		fish_down[0] = sheet.crop(width * 4, 0, width, height);
+		fish_down[1] = sheet.crop(width * 5, 0, width, height);
+		fish_up[0] = sheet.crop(width * 6, 0, width, height);
+		fish_up[1] = sheet.crop(width * 7, 0, width, height);
+		fish_right[0] = sheet.crop(width * 4, 0, width, height);
+		fish_right[1] = sheet.crop(width * 5, 0, width, height);
+		fish_left[0] = sheet.crop(width * 6, 0, width, height);
+		fish_left[1] = sheet.crop(width * 7, 0, width, height);
 		
-		zombie_down = new BufferedImage[2];
-		zombie_up = new BufferedImage[2];
-		zombie_left = new BufferedImage[2];
-		zombie_right = new BufferedImage[2];
+		turtle_down = new BufferedImage[2];
+		turtle_up = new BufferedImage[2];
+		turtle_left = new BufferedImage[2];
+		turtle_right = new BufferedImage[2];
 		
-		zombie_down[0] = sheet.crop(width * 4, height * 2, width, height);
-		zombie_down[1] = sheet.crop(width * 5, height * 2, width, height);
-		zombie_up[0] = sheet.crop(width * 6, height * 2, width, height);
-		zombie_up[1] = sheet.crop(width * 7, height * 2, width, height);
-		zombie_right[0] = sheet.crop(width * 4, height * 3, width, height);
-		zombie_right[1] = sheet.crop(width * 5, height * 3, width, height);
-		zombie_left[0] = sheet.crop(width * 6, height * 3, width, height);
-		zombie_left[1] = sheet.crop(width * 7, height * 3, width, height);
+		turtle_down[0] = sheet.crop(0, height*5, 2*width, 2*height);
+		turtle_down[1] = sheet.crop(2*width, height*5, 2*width, 2*height);
+		turtle_up[0] = sheet.crop(0, height*5, 2*width, 2*height);
+		turtle_up[1] = sheet.crop(2*width, height*5, 2*width, 2*height);
+		turtle_right[0] = sheet.crop(0, height*3, 2*width, 2*height);
+		turtle_right[1] = sheet.crop(2*width, height*3, 2*width, 2*height);
+		turtle_left[0] = sheet.crop(4*width, height*3, 2*width, 2*height);
+		turtle_left[1] = sheet.crop(6*width, height*3, 2*width, 2*height);
+		
+		turtle_swim_down = new BufferedImage[2];
+		turtle_swim_up = new BufferedImage[2];
+		turtle_swim_left = new BufferedImage[2];
+		turtle_swim_right = new BufferedImage[2];
+		
+		
+		turtle_swim_down[0] = sheet.crop(0, height*7, 2*width, 2*height);
+		turtle_swim_down[1] = sheet.crop(2*width, height*7, 2*width, 2*height);
+		turtle_swim_up[0] = sheet.crop(4*width, height*7, 2*width, 2*height);
+		turtle_swim_up[1] = sheet.crop(6*width, height*7, 2*width, 2*height);
+		turtle_swim_right[0] = sheet.crop(0, height*7, 2*width, 2*height);
+		turtle_swim_right[1] = sheet.crop(2*width, height*7, 2*width, 2*height);
+		turtle_swim_left[0] = sheet.crop(4*width, height*7, 2*width, 2*height);
+		turtle_swim_left[1] = sheet.crop(6*width, height*7, 2*width, 2*height);
+		
 		
 		dirt = sheet.crop(width, 0, width, height);
 		grass = sheet.crop(width * 2, 0, width, height);
-		stone = sheet.crop(width * 3, 0, width, height);
+		fence = sheet.crop(width * 3, 0, width, height);
 		tree = sheet.crop(0, 0, width, height * 2);
 		rock = sheet.crop(0, height * 2, width, height);
 		water = sheet.crop(width, height, width, height);

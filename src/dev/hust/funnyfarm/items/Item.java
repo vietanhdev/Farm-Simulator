@@ -1,5 +1,4 @@
 package dev.hust.funnyfarm.items;
-
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -41,10 +40,7 @@ public class Item {
 	}
 	
 	public void tick(){
-		if(handler.getWorld().getEntityManager().getPlayer().getCollisionBounds(0f, 0f).intersects(bounds)){
-			pickedUp = true;
-			handler.getWorld().getEntityManager().getPlayer().getInventory().addItem(this);
-		}
+		
 	}
 	
 	public void render(Graphics g){
