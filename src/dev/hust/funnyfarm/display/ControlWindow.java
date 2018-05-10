@@ -3,12 +3,16 @@ package dev.hust.funnyfarm.display;
 import java.awt.*;
 import java.awt.event.*;
 
+import dev.hust.funnyfarm.Game;
+
 public class ControlWindow {
 
    private Frame mainFrame;
    private Panel controlPanel;
+   Game game;
 
-   public ControlWindow(){
+   public ControlWindow(Game g){
+	  game = g;
       prepareGUI();
    }
    
@@ -37,21 +41,58 @@ public class ControlWindow {
 
       Button addCreature = new Button("Add Creature");
       Button feedCreature = new Button("Feed");
-      Button resetTimeSpeed = new Button("Reset Time Speed");
-      Button setTimeSpeed = new Button("Set Time Speed");
+      Button resetTimeSpeed = new Button("Time Speed Normal / Sim Mode");
+      Button addTimeSpeed = new Button("++ Time Speed");
+      Button subTimeSpeed = new Button("-- Time Speed");
       Button calculateFood = new Button("Calculate Food");
+      
+      resetTimeSpeed.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {     
+            game.setTimeSpeed(game.DEFAULT_TIMESPEED);
+            
+            statusTextArea.setText(statusTextArea.getText() + "\n" +
+         		   "Current Time Speed: " + game.getTimeSpeed()
+         		   );
+            
+            
+          }
+       }); 
 
-      addCreature.addActionListener(new ActionListener() {
+      addTimeSpeed.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {     
+           game.setTimeSpeed(game.getTimeSpeed() + 10);
+           
+           statusTextArea.setText(statusTextArea.getText() + "\n" +
+        		   "Current Time Speed: " + game.getTimeSpeed()
+        		   );
+           
            
          }
+      }); 
+      
+      subTimeSpeed.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+        	  if (game.getTimeSpeed() > 10) {
+        		  game.setTimeSpeed(game.getTimeSpeed() - 10);
+        		  
+        		  statusTextArea.setText(statusTextArea.getText() + "\n" +
+               		   "Current Time Speed: " + game.getTimeSpeed()
+               		   );
+        		 
+        	  } else {
+        		  statusTextArea.setText(statusTextArea.getText() + "\n" +
+                  		   "Cannot decrease time speed anymore!"
+                  		   );
+        	  }
+          }
       }); 
 
       controlPanel.add(statusTextArea);    
       controlPanel.add(addCreature);
       controlPanel.add(feedCreature);
       controlPanel.add(resetTimeSpeed);
-      controlPanel.add(setTimeSpeed);
+      controlPanel.add(subTimeSpeed);
+      controlPanel.add(addTimeSpeed);
       controlPanel.add(calculateFood);
       
       mainFrame.setVisible(true);  

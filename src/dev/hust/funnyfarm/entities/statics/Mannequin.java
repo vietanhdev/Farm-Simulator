@@ -27,12 +27,12 @@ public class Mannequin extends StaticEntity {
 	
 	@Override
 	public void die(){
-		 getHandler().getWorld().getItemManager().addItem(Item.woodItem.createNew((int) x, (int) y));
+		 getHandler().getWorld().getItemManager().addItem(Item.woodItem.createNew((int) getX(), (int) getY()));
 	}
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(Assets.tree, (int) (x -  getHandler().getGameCamera().getxOffset()), (int) (y -  getHandler().getGameCamera().getyOffset()), getWidth(), getHeight(), null);
+		g.drawImage(Assets.tree, (int) (getX() -  getHandler().getGameCamera().getxOffset()), (int) (getY() -  getHandler().getGameCamera().getyOffset()), getWidth(), getHeight(), null);
 	}
 
 }

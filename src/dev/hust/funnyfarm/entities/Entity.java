@@ -9,7 +9,7 @@ public abstract class Entity {
 
 	
 	private Handler handler;
-	protected float x, y;
+	private float x, y;
 	private int width, height;
 	private boolean active = true;
 	private Rectangle bounds;
@@ -67,6 +67,7 @@ public abstract class Entity {
 	public float getX() {
 		return x;
 	}
+	
 
 	public void setX(float x) {
 		this.x = x;

@@ -15,10 +15,15 @@ import dev.hust.funnyfarm.states.State;
 
 public class Game implements Runnable {
 
+	public final int DEFAULT_TIMESPEED = 60;
+	
+	int timeSpeed = DEFAULT_TIMESPEED; // fps
 	private Display display;
 	private ControlWindow controlWindow;
 	private int width, height;
 	public String title;
+	
+	private long simTime;
 	
 	private boolean running = false;
 	private Thread thread;
@@ -46,6 +51,7 @@ public class Game implements Runnable {
 		this.title = title;
 		keyManager = new KeyManager();
 		mouseManager = new MouseManager();
+		simTime = 0;
 	}
 	
 	private void init(){
@@ -61,7 +67,7 @@ public class Game implements Runnable {
 
 		
 		// Control Window
-		controlWindow = new ControlWindow();
+		controlWindow = new ControlWindow(this);
 		controlWindow.showControlWindow();
 		
 		handler = new Handler(this);
@@ -115,16 +121,17 @@ public class Game implements Runnable {
 		
 		init();
 		
-		int fps = 60;
-		double timePerTick = 1000000000 / fps;
+		
+		double timePerTick = 1000000000 / getTimeSpeed();
 		double delta = 0;
 		long now;
 		long lastTime = System.nanoTime();
 		long timer = 0;
-		int ticks = 0;
+		//int ticks = 0;
 		
 		while(running){
 			now = System.nanoTime();
+			timePerTick = 1000000000 / getTimeSpeed();
 			delta += (now - lastTime) / timePerTick;
 			timer += now - lastTime;
 			lastTime = now;
@@ -132,14 +139,17 @@ public class Game implements Runnable {
 			if(delta >= 1){
 				tick();
 				render();
-				ticks++;
+				//ticks++;
 				delta--;
+				increaseSimTime((long)delta);
+				//System.out.println("SimTime: " + getSimTime());
 			}
 			
 			if(timer >= 1000000000){
-				System.out.println("Ticks and Frames: " + ticks);
-				ticks = 0;
+				
+				//ticks = 0;
 				timer = 0;
+				
 			}
 		}
 		
@@ -157,6 +167,27 @@ public class Game implements Runnable {
 	
 	public GameCamera getGameCamera(){
 		return gameCamera;
+	}
+	
+	
+	public void setTimeSpeed(int s) {
+		timeSpeed = s;
+	}
+	
+	public int getTimeSpeed() {
+		return timeSpeed;
+	}
+	
+	public long getSimTime() {
+		return simTime;
+	}
+	
+	public void setSimTime(long simTime) {
+		this.simTime = simTime;
+	}
+	
+	public void increaseSimTime(long amount) {
+		this.simTime += amount;
 	}
 	
 	public int getWidth(){

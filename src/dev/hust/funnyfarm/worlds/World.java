@@ -28,6 +28,7 @@ public class World {
 		entityManager.addEntity(new Fish(handler, 240, 240));
 		entityManager.addEntity(new Fish(handler, 500, 500));
 		entityManager.addEntity(new Turtle(handler, 300, 200));
+		entityManager.addEntity(new Turtle(handler, 400, 200));
 		
 		itemManager = new ItemManager(handler);
 		

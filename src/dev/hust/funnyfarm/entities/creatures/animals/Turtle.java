@@ -8,7 +8,7 @@ import dev.hust.funnyfarm.gfx.Animation;
 import dev.hust.funnyfarm.gfx.Assets;
 
 
-public class Turtle extends Animal {
+public class Turtle extends Animal implements Swimmable {
 	
 	//Animations
 	private Animation animSwimDown, animSwimUp, animSwimLeft, animSwimRight;
@@ -58,9 +58,22 @@ public class Turtle extends Animal {
 	
 	@Override
 	public void tick() {
+		
+		if (getCurrentEnvironment() == "water") {
+			swim();
+		} else {
+			walk();
+		}
+		
+	}
+	
+	
+	public void swim() {
 		//Animations
-		animTick();
-		animSwimTick();
+		animSwimDown.tick();
+		animSwimUp.tick();
+		animSwimRight.tick();
+		animSwimLeft.tick();
 		
 		//Movement
 		getMove();
@@ -68,18 +81,9 @@ public class Turtle extends Animal {
 	}
 	
 	
-	private void animSwimTick() {
-		//Animations
-		animSwimDown.tick();
-		animSwimUp.tick();
-		animSwimRight.tick();
-		animSwimLeft.tick();
-	}
-	
-	
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(getCurrentAnimationFrame(), (int) (x - getHandler().getGameCamera().getxOffset()), (int) (y -  getHandler().getGameCamera().getyOffset()), getWidth(), getHeight(), null);
+		g.drawImage(getCurrentAnimationFrame(), (int) (getX() - getHandler().getGameCamera().getxOffset()), (int) (getY() -  getHandler().getGameCamera().getyOffset()), getWidth(), getHeight(), null);
 	}
 	
 	private BufferedImage getCurrentAnimationFrame(){
@@ -110,11 +114,14 @@ public class Turtle extends Animal {
 		
 	}
 
+	
+	
 
 	@Override
 	public String getEnvironments() {
 		return "water dirt";
 	}
+
 
 	
 }

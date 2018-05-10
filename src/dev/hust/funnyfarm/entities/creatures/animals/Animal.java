@@ -9,7 +9,7 @@ import dev.hust.funnyfarm.entities.creatures.Creature;
 import dev.hust.funnyfarm.gfx.Animation;
 import dev.hust.funnyfarm.tiles.Tile;
 
-public abstract class Animal extends Creature {
+public abstract class Animal extends Creature implements Walkable {
 	
 	public static final float DEFAULT_SPEED = 5.0f;
 	
@@ -60,23 +60,21 @@ public abstract class Animal extends Creature {
 	@Override
 	public void tick() {
 		//Animations
-		animTick();
+		walk();
 		
-		//Movement
-		getMove();
-		
-		move();
-		//handler.getGameCamera().centerOnEntity(this);
 	}
 	
 	
-	
-	protected void animTick() {
+	public void walk() {
 		//Animations
 		getAnimDown().tick();
 		getAnimUp().tick();
 		getAnimRight().tick();
 		getAnimLeft().tick();
+		
+		//Movement
+		getMove();
+		move();
 	}
 	
 	
@@ -89,23 +87,23 @@ public abstract class Animal extends Creature {
 	
 	public void moveX(){
 		if(xMove > 0){//Moving right
-			int tx = (int) (x + xMove + getBounds().x + getBounds().width) / Tile.TILEWIDTH;
+			int tx = (int) (getX() + xMove + getBounds().x + getBounds().width) / Tile.TILEWIDTH;
 			
-			if(!collisionWithTile(tx, (int) (y + getBounds().y) / Tile.TILEHEIGHT) &&
-					!collisionWithTile(tx, (int) (y + getBounds().y + getBounds().height) / Tile.TILEHEIGHT)){
-				x += xMove;
+			if(!collisionWithTile(tx, (int) (getY() + getBounds().y) / Tile.TILEHEIGHT) &&
+					!collisionWithTile(tx, (int) (getY() + getBounds().y + getBounds().height) / Tile.TILEHEIGHT)){
+				setX(getX() + xMove);
 			}else{
-				x = tx * Tile.TILEWIDTH - getBounds().x - getBounds().width - 1;
+				setX(tx * Tile.TILEWIDTH - getBounds().x - getBounds().width - 1);
 			}
 			
 		}else if(xMove < 0){//Moving left
-			int tx = (int) (x + xMove + getBounds().x) / Tile.TILEWIDTH;
+			int tx = (int) (getX() + xMove + getBounds().x) / Tile.TILEWIDTH;
 			
-			if(!collisionWithTile(tx, (int) (y + getBounds().y) / Tile.TILEHEIGHT) &&
-					!collisionWithTile(tx, (int) (y + getBounds().y + getBounds().height) / Tile.TILEHEIGHT)){
-				x += xMove;
+			if(!collisionWithTile(tx, (int) (getY() + getBounds().y) / Tile.TILEHEIGHT) &&
+					!collisionWithTile(tx, (int) (getY() + getBounds().y + getBounds().height) / Tile.TILEHEIGHT)){
+				setX(getX() + xMove);
 			}else{
-				x = tx * Tile.TILEWIDTH + Tile.TILEWIDTH - getBounds().x;
+				setX(tx * Tile.TILEWIDTH + Tile.TILEWIDTH - getBounds().x);
 			}
 			
 		}
@@ -113,23 +111,23 @@ public abstract class Animal extends Creature {
 	
 	public void moveY(){
 		if(yMove < 0){//Up
-			int ty = (int) (y + yMove + getBounds().y) / Tile.TILEHEIGHT;
+			int ty = (int) (getY() + yMove + getBounds().y) / Tile.TILEHEIGHT;
 			
-			if(!collisionWithTile((int) (x + getBounds().x) / Tile.TILEWIDTH, ty) &&
-					!collisionWithTile((int) (x + getBounds().x + getBounds().width) / Tile.TILEWIDTH, ty)){
-				y += yMove;
+			if(!collisionWithTile((int) (getX() + getBounds().x) / Tile.TILEWIDTH, ty) &&
+					!collisionWithTile((int) (getX() + getBounds().x + getBounds().width) / Tile.TILEWIDTH, ty)){
+				setY(getY() + yMove);
 			}else{
-				y = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - getBounds().y;
+				setY(ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - getBounds().y);
 			}
 			
 		}else if(yMove > 0){//Down
-			int ty = (int) (y + yMove + getBounds().y + getBounds().height) / Tile.TILEHEIGHT;
+			int ty = (int) (getY() + yMove + getBounds().y + getBounds().height) / Tile.TILEHEIGHT;
 			
-			if(!collisionWithTile((int) (x + getBounds().x) / Tile.TILEWIDTH, ty) &&
-					!collisionWithTile((int) (x + getBounds().x + getBounds().width) / Tile.TILEWIDTH, ty)){
-				y += yMove;
+			if(!collisionWithTile((int) (getX() + getBounds().x) / Tile.TILEWIDTH, ty) &&
+					!collisionWithTile((int) (getX() + getBounds().x + getBounds().width) / Tile.TILEWIDTH, ty)){
+				setY(getY() + yMove);
 			}else{
-				y = ty * Tile.TILEHEIGHT - getBounds().y - getBounds().height - 1;
+				setY(ty * Tile.TILEHEIGHT - getBounds().y - getBounds().height - 1);
 			}
 			
 		}
@@ -171,7 +169,7 @@ public abstract class Animal extends Creature {
 	
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(getCurrentAnimationFrame(), (int) (x -  getHandler().getGameCamera().getxOffset()), (int) (y -  getHandler().getGameCamera().getyOffset()), getWidth(), getWidth(), null);
+		g.drawImage(getCurrentAnimationFrame(), (int) (getX() -  getHandler().getGameCamera().getxOffset()), (int) (getY() -  getHandler().getGameCamera().getyOffset()), getWidth(), getWidth(), null);
 	}
 	
 	private BufferedImage getCurrentAnimationFrame(){
@@ -191,7 +189,6 @@ public abstract class Animal extends Creature {
 	public String getEnvironments() {
 		return "water grass dirt";
 	}
-	
 	
 	public float getxMove() {
 		return xMove;
