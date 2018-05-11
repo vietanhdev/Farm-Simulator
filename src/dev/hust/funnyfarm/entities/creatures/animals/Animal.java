@@ -11,7 +11,7 @@ import dev.hust.funnyfarm.tiles.Tile;
 
 public abstract class Animal extends Creature implements Walkable {
 	
-	public static final float DEFAULT_SPEED = 3.0f;
+	public static float DEFAULT_SPEED = 3.0f;
 	
 	private float speed;
 	private float xMove, yMove;
@@ -31,7 +31,6 @@ public abstract class Animal extends Creature implements Walkable {
 
 	public Animal(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);
-		
 		speed = DEFAULT_SPEED;
 		xMove = 0;
 		yMove = 0;
@@ -207,7 +206,6 @@ public abstract class Animal extends Creature implements Walkable {
 	}
 	
 	protected boolean collisionWithTile(int x, int y){
-
 		String env = getHandler().getWorld().getTile(x, y).getName();
 		boolean rightEnv  = isRightEnvironment(env);
 		
@@ -223,7 +221,6 @@ public abstract class Animal extends Creature implements Walkable {
 		int direction;
 		
 		direction = randomGenerator.nextInt(60);
-		
 			
 		if (direction == 0) {
 			yMove = -getSpeed();
@@ -247,6 +244,9 @@ public abstract class Animal extends Creature implements Walkable {
 	}
 	
 	private BufferedImage getCurrentAnimationFrame(){
+		
+		if (!isLiving()) return getAnimDead().getCurrentFrame();
+		
 		if (isSleeping())
 			return getAnimSleep().getCurrentFrame();
 		if(xMove < 0){
@@ -258,12 +258,6 @@ public abstract class Animal extends Creature implements Walkable {
 		} else {
 			return getAnimDown().getCurrentFrame();
 		}
-	}
-
-	
-	@Override
-	public String getEnvironments() {
-		return "water grass dirt";
 	}
 	
 	public float getxMove() {

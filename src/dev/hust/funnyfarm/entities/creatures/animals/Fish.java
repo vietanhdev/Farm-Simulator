@@ -6,11 +6,16 @@ import dev.hust.funnyfarm.gfx.Assets;
 
 
 public class Fish extends Animal {
-
-	public Fish(Handler handler, float x, float y) {
-		super(handler, x, y, Animal.DEFAULT_CREATURE_WIDTH, Animal.DEFAULT_CREATURE_HEIGHT);
 	
+	public Fish(Handler handler, float x, float y) {
+		super(handler, x, y, DEFAULT_CREATURE_WIDTH, DEFAULT_CREATURE_HEIGHT);
+		
 		setBounds(0,0,64,64);
+		
+		// Body update info
+		setHealthLostPerTick(0.01);
+		setFoodLostPerTick(0.009);
+		setWaterLostPerTick(0.001);
 		
 		//Animations
 		Animation animDown = new Animation(500, Assets.fish_down);
@@ -22,6 +27,11 @@ public class Fish extends Animal {
 		
 		super.setAnimations(animDown, animUp, animLeft, animRight, animSleep, animDead);
 		
+	}
+	
+	@Override
+	public String getEnvironments() {
+		return "water";
 	}
 	
 	@Override
@@ -49,18 +59,6 @@ public class Fish extends Animal {
 			getMove();
 			move();
 		}
-	}
-	
-	
-	@Override
-	public String getEnvironments() {
-		return "water";
-	}
-
-	
-	@Override
-	public void die(){
-		System.out.println("You lose");
 	}
 
 

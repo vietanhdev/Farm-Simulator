@@ -11,6 +11,7 @@ import dev.hust.funnyfarm.gfx.Assets;
 
 public class Turtle extends Animal implements Swimmable {
 	
+	
 	//Animations
 	private Animation animSwimDown, animSwimUp, animSwimLeft, animSwimRight;
 
@@ -18,6 +19,10 @@ public class Turtle extends Animal implements Swimmable {
 		super(handler, x, y, Animal.DEFAULT_CREATURE_WIDTH, Animal.DEFAULT_CREATURE_HEIGHT);
 		
 		setSpeed(1.0f);
+		// Body update info
+		setHealthLostPerTick(0.005);
+		setFoodLostPerTick(0.009);
+		setWaterLostPerTick(0.001);
 		setBounds(0, 0, 64, 64);
 
 		//Animations
@@ -38,6 +43,11 @@ public class Turtle extends Animal implements Swimmable {
 		
 		setCurrentEnvironment("dirt");
 		
+	}
+	
+	@Override
+	public String getEnvironments() {
+		return "water dirt grass";
 	}
 	
 	public void setSwimAnimations(Animation animDown, Animation animUp, Animation animLeft, Animation animRight) {
@@ -132,14 +142,6 @@ public class Turtle extends Animal implements Swimmable {
 		
 	}
 
-	
-	
-
-	@Override
-	public String getEnvironments() {
-		return "water dirt";
-	}
-
 	@Override
 	public long getSleepTime() {
 		return 800;
@@ -149,6 +151,5 @@ public class Turtle extends Animal implements Swimmable {
 	public long getTimeBetweenSleeps() {
 		return 3000;
 	}
-
 	
 }

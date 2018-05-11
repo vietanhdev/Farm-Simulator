@@ -12,10 +12,14 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 	private int mouseX, mouseY;
 	private UIManager uiManager;
 	
+	private boolean mouseClicked;
+	private int mouseClickedX;
+	private int mouseClickedY;
+	
 	public MouseManager(){
 		
 	}
-	
+
 	public void setUIManager(UIManager uiManager){
 		this.uiManager = uiManager;
 	}
@@ -46,6 +50,8 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 			leftPressed = true;
 		else if(e.getButton() == MouseEvent.BUTTON3)
 			rightPressed = true;
+		if(uiManager != null)
+			uiManager.onMouseRelease(e);
 	}
 
 	@Override
@@ -54,16 +60,12 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 			leftPressed = false;
 		else if(e.getButton() == MouseEvent.BUTTON3)
 			rightPressed = false;
-		
-		if(uiManager != null)
-			uiManager.onMouseRelease(e);
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		mouseX = e.getX();
 		mouseY = e.getY();
-		
 		if(uiManager != null)
 			uiManager.onMouseMove(e);
 	}
@@ -73,11 +75,30 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	public int getMouseClickedX() {
+		return mouseClickedX;
+	}
+	
+	public int getMouseClickedY() {
+		return mouseClickedY;
+	}
+	
+	public boolean isMouseClicked() {
+		if (mouseClicked) {
+			mouseClicked = false;
+			return true;
+		} else 
+			return false;
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		if (mouseClicked) return;
+		mouseClicked = true;
+		mouseClickedX = e.getX();
+		mouseClickedY = e.getY();
 	}
 
 	@Override

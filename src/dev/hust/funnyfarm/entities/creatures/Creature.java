@@ -15,13 +15,17 @@ public abstract class Creature extends Entity {
 	private double food;
 	private double water;
 	
+	private long age;
+	
 	public static final double DEFAULT_HEALTH = 100.0;
 	public static final double DEFAULT_FOOD = 100.0;
 	public static final double DEFAULT_WATER = 100.0;
-	
 	public static final int DEFAULT_CREATURE_WIDTH = 64,
-							DEFAULT_CREATURE_HEIGHT = 64;
-
+			DEFAULT_CREATURE_HEIGHT = 64;
+	
+	public double healthLostPerTick = 0.005;
+	public double foodLostPerTick = 0.009;
+	public double waterLostPerTick = 0.001;
 
 	public Creature(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);
@@ -33,13 +37,30 @@ public abstract class Creature extends Entity {
 	
 	//GETTERS SETTERS
 	
+	public double getHealthLostPerTick () {
+		return healthLostPerTick;
+	}
+	public void setHealthLostPerTick (double value) {
+		healthLostPerTick = value;
+	}
+	public double getFoodLostPerTick () {
+		return foodLostPerTick;
+	}
+	public void setFoodLostPerTick (double value) {
+		foodLostPerTick = value;
+	}
+	public double getWaterLostPerTick () {
+		return waterLostPerTick;
+	}
+	public void setWaterLostPerTick (double value) {
+		waterLostPerTick = value;
+	}
+	
+	
 	public boolean isLiving() {
 		return isLiving;
 	}
 	
-	public String getEnvironments() {
-		return "";
-	}
 	
 	public boolean isRightEnvironment(String environment) {
 		return getEnvironments().toLowerCase().contains(environment.toLowerCase());
@@ -54,15 +75,17 @@ public abstract class Creature extends Entity {
 	}
 	
 	public void updateBodyStatus() {
-		this.health -= 0.005;
-		this.food -= 0.009;
-		this.water -= 0.001;
+		increaseAge();
+		
+		this.health -= getHealthLostPerTick();
+		this.food -= getFoodLostPerTick();
+		this.water -= getWaterLostPerTick();
 		if (food < 30) {
-			this.health -= 0.01;
+			this.health -= 0.05;
 		}
 		
 		if (water < 30) {
-			this.health -= 0.01;
+			this.health -= 0.05;
 		}
 		
 		if (health < 0) health = 0;
@@ -73,8 +96,7 @@ public abstract class Creature extends Entity {
 		if (food >  100) food = 100;
 		if (water > 100) water = 100;
 		
-		
-		System.out.println(getHealth());
+
 		if (getHealth() < 1) {
 			die();
 			isLiving = false;
@@ -98,7 +120,6 @@ public abstract class Creature extends Entity {
 	
 	public void drink(double amount) {
 		this.water += amount;
-		if (this.water > 100) this.water = 100;
 	}
 	
 	public double getFood() {
@@ -114,15 +135,38 @@ public abstract class Creature extends Entity {
 	}
 
 	public void printInfo(Graphics g) {
+		
 		Text.drawString(g, "Health: " + (int)getHealth()
 			+ "\n Food: " + (int)getFood()
 			+ " Water: " + (int)getWater()
-		, (int)getX(), (int)getY(), 0);
+		, (int) (getX() - getHandler().getGameCamera().getxOffset())	
+		, (int) (getY() - getHandler().getGameCamera().getyOffset())
+		, 0);
 	}
 	
 	@Override
 	public void die() {
 		isLiving = false;
+		setActive(false);
+	}
+	
+
+	public long getAge() {
+		return age;
+	}
+
+
+	public void setAge(long age) {
+		this.age = age;
+	}
+	
+	public void increaseAge() {
+		this.age += 1;
+	}
+
+
+	public String getEnvironments() {
+		return "";
 	}
 	
 }

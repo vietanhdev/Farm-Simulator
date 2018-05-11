@@ -7,7 +7,6 @@ import dev.hust.funnyfarm.Handler;
 
 public abstract class Entity {
 
-	
 	private Handler handler;
 	private float x, y;
 	private int width, height;
@@ -34,7 +33,7 @@ public abstract class Entity {
 
 	
 	public boolean checkEntityCollisions(float xOffset, float yOffset){
-		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+		for(Entity e : getHandler().getWorld().getEntityManager().getEntities()){
 			if(e.equals(this))
 				continue;
 			if(e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset)))
@@ -103,5 +102,6 @@ public abstract class Entity {
 	public void setActive(boolean status) {
 		this.active = status;
 	}
+
 	
 }

@@ -29,8 +29,10 @@ public class EntityManager {
 		Iterator<Entity> it = entities.iterator();
 		while(it.hasNext()){
 			Entity e = it.next();
-			if(!e.isActive())
+			if(!e.isActive()) {
 				it.remove();
+			}
+				
 			e.tick();
 		}
 		entities.sort(renderSorter);

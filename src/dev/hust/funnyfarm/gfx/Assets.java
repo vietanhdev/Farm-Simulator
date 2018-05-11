@@ -16,6 +16,8 @@ public class Assets {
 	public static BufferedImage[] turtle_down, turtle_up, turtle_left, turtle_right, turtle_sleep, turtle_dead;
 	public static BufferedImage[] turtle_swim_down, turtle_swim_up, turtle_swim_left, turtle_swim_right;
 	
+	public static BufferedImage[] flower_big, flower_small, flower_dead;
+	
 	public static BufferedImage[] btn_start;
 	public static BufferedImage inventoryScreen;
 
@@ -89,6 +91,12 @@ public class Assets {
 		turtle_swim_left[0] = sheet.crop(4*width, height*7, 2*width, 2*height);
 		turtle_swim_left[1] = sheet.crop(6*width, height*7, 2*width, 2*height);
 		
+		flower_big = new BufferedImage[1];
+		flower_big[0] = sheet.crop(2*width, height * 9, 2*width, 2*height);
+		flower_small = new BufferedImage[1];
+		flower_small[0] = sheet.crop(4*width, height * 9, 2*width, 2*height);
+		flower_dead = new BufferedImage[1];
+		flower_dead[0] = sheet.crop(6*width, height * 9, 2*width, 2*height);
 		
 		dirt = sheet.crop(width, 0, width, height);
 		grass = sheet.crop(width * 2, 0, width, height);

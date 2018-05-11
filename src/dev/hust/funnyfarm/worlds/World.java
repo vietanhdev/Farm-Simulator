@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.EntityManager;
 import dev.hust.funnyfarm.entities.creatures.animals.*;
+import dev.hust.funnyfarm.entities.creatures.plants.*;
 import dev.hust.funnyfarm.entities.statics.Mannequin;
 import dev.hust.funnyfarm.items.ItemManager;
 import dev.hust.funnyfarm.tiles.Tile;
@@ -37,6 +38,8 @@ public class World {
 		entityManager.addEntity(t);
 		entityManager.addEntity(new Turtle(handler, 500, 200));
 		
+		entityManager.addEntity(new Flower(handler, 2*64, 6*64));
+		
 		itemManager = new ItemManager(handler);
 		
 		// Add static entity into game
@@ -44,6 +47,8 @@ public class World {
 		entityManager.addEntity(new Mannequin(handler, 375, 300));
 		entityManager.addEntity(new Mannequin(handler, 750, 300));
 		entityManager.addEntity(new Mannequin(handler, 1100, 300));
+
+		
 		
 		loadWorld(path);
 		

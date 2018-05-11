@@ -4,7 +4,6 @@ import java.awt.Graphics;
 
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.gfx.Assets;
-import dev.hust.funnyfarm.items.Item;
 import dev.hust.funnyfarm.tiles.Tile;
 
 public class Rock extends StaticEntity {
@@ -26,7 +25,7 @@ public class Rock extends StaticEntity {
 	
 	@Override
 	public void die(){
-		 getHandler().getWorld().getItemManager().addItem(Item.rockItem.createNew((int) getX(), (int) getY()));
+
 	}
 
 	@Override
