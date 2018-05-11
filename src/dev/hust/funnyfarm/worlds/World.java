@@ -38,7 +38,59 @@ public class World {
 		entityManager.addEntity(t);
 		entityManager.addEntity(new Turtle(handler, 500, 200));
 		
+		entityManager.addEntity(new Pig(handler, 10*64, 64));
+		
+		Horse h1 = new Horse(handler, 14*64, 64);
+		h1.setLastSleepTime(1145);
+		entityManager.addEntity(h1);
+		entityManager.addEntity(new Horse(handler, 16*64, 64));
+		h1 = new Horse(handler, 16*64, 200);
+		h1.setLastSleepTime(245);
+		entityManager.addEntity(h1);
+		
+		
+		Cow c = new Cow(handler, 14*64, 8*64);
+		c.setLastSleepTime(500);
+		entityManager.addEntity(c);
+		entityManager.addEntity(new Cow(handler, 16*64, 8*64));
+		c = new Cow(handler, 16*64, 10*64);
+		c.setLastSleepTime(999);
+		entityManager.addEntity(c);
+		
+		
+		Dog d = new Dog(handler, 10*64, 8*64);
+		d.setLastSleepTime(800);
+		entityManager.addEntity(d);
+		entityManager.addEntity(new Dog(handler, 8*64, 8*64));
+		d = new Dog(handler, 8*64, 12*64);
+		d.setLastSleepTime(1800);
+		entityManager.addEntity(d);
+		
+		
+		Chicken g = new Chicken(handler, 4*64, 8*64);
+		g.setLastSleepTime(400);
+		entityManager.addEntity(g);
+		entityManager.addEntity(new Chicken(handler, 2*64, 8*64));
+		g = new Chicken(handler, 4*64, 12*64);
+		g.setLastSleepTime(1400);
+		entityManager.addEntity(g);
+		entityManager.addEntity(new Chicken(handler, 2*64, 10*64));
+		
 		entityManager.addEntity(new Flower(handler, 2*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 3*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 4*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 5*64, 6*64));
+		
+		entityManager.addEntity(new Flower(handler, 6*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 7*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 8*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 9*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 10*64, 6*64));
+		
+		entityManager.addEntity(new Flower(handler, 12*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 13*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 14*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 15*64, 6*64));
 		
 		itemManager = new ItemManager(handler);
 		

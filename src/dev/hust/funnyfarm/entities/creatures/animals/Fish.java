@@ -14,8 +14,8 @@ public class Fish extends Animal {
 		
 		// Body update info
 		setHealthLostPerTick(0.01);
-		setFoodLostPerTick(0.009);
-		setWaterLostPerTick(0.001);
+		setFoodLostPerTick(0.015);
+		setWaterLostPerTick(0.005);
 		
 		//Animations
 		Animation animDown = new Animation(500, Assets.fish_down);

@@ -11,7 +11,7 @@ import dev.hust.funnyfarm.tiles.Tile;
 
 public abstract class Animal extends Creature implements Walkable {
 	
-	public static float DEFAULT_SPEED = 3.0f;
+	public static float DEFAULT_SPEED = 1.0f;
 	
 	private float speed;
 	private float xMove, yMove;

@@ -12,6 +12,11 @@ public class Assets {
 	public static BufferedImage dirt, grass, fence, tree, rock, water, flowerpot;
 	public static BufferedImage wood;
 	public static BufferedImage[] fish_down, fish_up, fish_left, fish_right, fish_sleep, fish_dead;
+	public static BufferedImage[] cow_down, cow_up, cow_left, cow_right, cow_sleep, cow_dead;
+	public static BufferedImage[] dog_down, dog_up, dog_left, dog_right, dog_sleep, dog_dead;
+	public static BufferedImage[] chicken_down, chicken_up, chicken_left, chicken_right, chicken_sleep, chicken_dead;
+	public static BufferedImage[] horse_down, horse_up, horse_left, horse_right, horse_sleep, horse_dead;
+	public static BufferedImage[] pig_down, pig_up, pig_left, pig_right, pig_sleep, pig_dead;
 	
 	public static BufferedImage[] turtle_down, turtle_up, turtle_left, turtle_right, turtle_sleep, turtle_dead;
 	public static BufferedImage[] turtle_swim_down, turtle_swim_up, turtle_swim_left, turtle_swim_right;
@@ -38,13 +43,10 @@ public class Assets {
 		fish_right = new BufferedImage[2];
 		fish_sleep = new BufferedImage[2];
 		fish_dead = new BufferedImage[2];
-		
 		fish_sleep[0] = sheet.crop(width * 4, height, width, height);
 		fish_sleep[1] = sheet.crop(width * 5, height, width, height);
-		
 		fish_dead[0] = sheet.crop(width * 6, height, width, height);
 		fish_dead[1] = sheet.crop(width * 7, height, width, height);
-		
 		fish_down[0] = sheet.crop(width * 4, 0, width, height);
 		fish_down[1] = sheet.crop(width * 5, 0, width, height);
 		fish_up[0] = sheet.crop(width * 6, 0, width, height);
@@ -81,7 +83,6 @@ public class Assets {
 		turtle_swim_left = new BufferedImage[2];
 		turtle_swim_right = new BufferedImage[2];
 		
-		
 		turtle_swim_down[0] = sheet.crop(0, height*7, 2*width, 2*height);
 		turtle_swim_down[1] = sheet.crop(2*width, height*7, 2*width, 2*height);
 		turtle_swim_up[0] = sheet.crop(4*width, height*7, 2*width, 2*height);
@@ -90,6 +91,100 @@ public class Assets {
 		turtle_swim_right[1] = sheet.crop(2*width, height*7, 2*width, 2*height);
 		turtle_swim_left[0] = sheet.crop(4*width, height*7, 2*width, 2*height);
 		turtle_swim_left[1] = sheet.crop(6*width, height*7, 2*width, 2*height);
+		
+		
+		cow_down = new BufferedImage[2];
+		cow_up = new BufferedImage[2];
+		cow_left = new BufferedImage[2];
+		cow_right = new BufferedImage[2];
+		cow_sleep = new BufferedImage[2];
+		cow_dead = new BufferedImage[1];
+		cow_right[0] = sheet.crop(0, 11*height, 2*width, 2*height);
+		cow_right[1] = sheet.crop(2*width, 11*height, 2*width, 2*height);
+		cow_left[0] = sheet.crop(4*width, 11*height, 2*width, 2*height);
+		cow_left[1] = sheet.crop(6*width, 11*height, 2*width, 2*height);
+		cow_down[0] = sheet.crop(0, 13*height, 2*width, 2*height);
+		cow_down[1] = sheet.crop(2*width, 13*height, 2*width, 2*height);
+		cow_up[0] = sheet.crop(4*width, 13*height, 2*width, 2*height);
+		cow_up[1] = sheet.crop(6*width, 13*height, 2*width, 2*height);
+		cow_sleep[0] = sheet.crop(0, 15*height, 2*width, 2*height);
+		cow_sleep[1] = sheet.crop(2*width, 15*height, 2*width, 2*height);
+		cow_dead[0] = sheet.crop(4*width, 15*height, 2*width, 2*height);
+		
+		
+		dog_down = new BufferedImage[2];
+		dog_up = new BufferedImage[2];
+		dog_left = new BufferedImage[2];
+		dog_right = new BufferedImage[2];
+		dog_sleep = new BufferedImage[2];
+		dog_dead = new BufferedImage[1];
+		dog_right[0] = sheet.crop(0, 17*height, 2*width, 2*height);
+		dog_right[1] = sheet.crop(2*width, 17*height, 2*width, 2*height);
+		dog_left[0] = sheet.crop(4*width, 17*height, 2*width, 2*height);
+		dog_left[1] = sheet.crop(6*width, 17*height, 2*width, 2*height);
+		dog_down[0] = sheet.crop(0, 19*height, 2*width, 2*height);
+		dog_down[1] = sheet.crop(2*width, 19*height, 2*width, 2*height);
+		dog_up[0] = sheet.crop(4*width, 19*height, 2*width, 2*height);
+		dog_up[1] = sheet.crop(6*width, 19*height, 2*width, 2*height);
+		dog_sleep[0] = sheet.crop(0, 21*height, 2*width, 2*height);
+		dog_sleep[1] = sheet.crop(2*width, 21*height, 2*width, 2*height);
+		dog_dead[0] = sheet.crop(4*width, 21*height, 2*width, 2*height);
+		
+		
+		chicken_down = new BufferedImage[2];
+		chicken_up = new BufferedImage[2];
+		chicken_left = new BufferedImage[2];
+		chicken_right = new BufferedImage[2];
+		chicken_sleep = new BufferedImage[2];
+		chicken_dead = new BufferedImage[1];
+		chicken_right[0] = sheet.crop(0, 23*height, 2*width, 2*height);
+		chicken_right[1] = sheet.crop(2*width, 23*height, 2*width, 2*height);
+		chicken_left[0] = sheet.crop(4*width, 23*height, 2*width, 2*height);
+		chicken_left[1] = sheet.crop(6*width, 23*height, 2*width, 2*height);
+		chicken_down[0] = sheet.crop(0, 25*height, 2*width, 2*height);
+		chicken_down[1] = sheet.crop(2*width, 25*height, 2*width, 2*height);
+		chicken_up[0] = sheet.crop(4*width, 25*height, 2*width, 2*height);
+		chicken_up[1] = sheet.crop(6*width, 25*height, 2*width, 2*height);
+		chicken_sleep[0] = sheet.crop(0, 27*height, 2*width, 2*height);
+		chicken_sleep[1] = sheet.crop(2*width, 27*height, 2*width, 2*height);
+		chicken_dead[0] = sheet.crop(4*width, 27*height, 2*width, 2*height);
+		
+		
+		horse_down = new BufferedImage[2];
+		horse_up = new BufferedImage[2];
+		horse_left = new BufferedImage[2];
+		horse_right = new BufferedImage[2];
+		horse_sleep = new BufferedImage[2];
+		horse_dead = new BufferedImage[1];
+		horse_right[0] = sheet.crop(0, 29*height, 2*width, 2*height);
+		horse_right[1] = sheet.crop(2*width, 29*height, 2*width, 2*height);
+		horse_left[0] = sheet.crop(4*width, 29*height, 2*width, 2*height);
+		horse_left[1] = sheet.crop(6*width, 29*height, 2*width, 2*height);
+		horse_down[0] = sheet.crop(0, 31*height, 2*width, 2*height);
+		horse_down[1] = sheet.crop(2*width, 31*height, 2*width, 2*height);
+		horse_up[0] = sheet.crop(4*width, 31*height, 2*width, 2*height);
+		horse_up[1] = sheet.crop(6*width, 31*height, 2*width, 2*height);
+		horse_sleep[0] = sheet.crop(0, 33*height, 2*width, 2*height);
+		horse_sleep[1] = sheet.crop(2*width, 33*height, 2*width, 2*height);
+		horse_dead[0] = sheet.crop(4*width, 33*height, 2*width, 2*height);
+		
+		pig_down = new BufferedImage[2];
+		pig_up = new BufferedImage[2];
+		pig_left = new BufferedImage[2];
+		pig_right = new BufferedImage[2];
+		pig_sleep = new BufferedImage[2];
+		pig_dead = new BufferedImage[1];
+		pig_right[0] = sheet.crop(0, 35*height, 2*width, 2*height);
+		pig_right[1] = sheet.crop(2*width, 35*height, 2*width, 2*height);
+		pig_left[0] = sheet.crop(4*width, 35*height, 2*width, 2*height);
+		pig_left[1] = sheet.crop(6*width, 35*height, 2*width, 2*height);
+		pig_down[0] = sheet.crop(0, 37*height, 2*width, 2*height);
+		pig_down[1] = sheet.crop(2*width, 37*height, 2*width, 2*height);
+		pig_up[0] = sheet.crop(4*width, 37*height, 2*width, 2*height);
+		pig_up[1] = sheet.crop(6*width, 37*height, 2*width, 2*height);
+		pig_sleep[0] = sheet.crop(0, 39*height, 2*width, 2*height);
+		pig_sleep[1] = sheet.crop(2*width, 39*height, 2*width, 2*height);
+		pig_dead[0] = sheet.crop(4*width, 39*height, 2*width, 2*height);
 		
 		flower_big = new BufferedImage[1];
 		flower_big[0] = sheet.crop(2*width, height * 9, 2*width, 2*height);
