@@ -23,12 +23,19 @@ public class World {
 	public World(Handler handler, String path){
 		this.handler = handler;
 		entityManager = new EntityManager(handler);
-		entityManager.addEntity(new Fish(handler, 90, 90));
-		entityManager.addEntity(new Fish(handler, 164, 164));
+		
+		Fish f = new Fish(handler, 90, 90);
+		f.setLastSleepTime(1374);
+		entityManager.addEntity(f);
+		f = new Fish(handler, 164, 164);
+		f.setLastSleepTime(456);
+		entityManager.addEntity(f);
 		entityManager.addEntity(new Fish(handler, 240, 240));
-		entityManager.addEntity(new Fish(handler, 500, 500));
-		entityManager.addEntity(new Turtle(handler, 300, 200));
-		entityManager.addEntity(new Turtle(handler, 400, 200));
+		
+		Turtle t = new Turtle(handler, 400, 200);
+		t.setLastSleepTime(1000);
+		entityManager.addEntity(t);
+		entityManager.addEntity(new Turtle(handler, 500, 200));
 		
 		itemManager = new ItemManager(handler);
 		

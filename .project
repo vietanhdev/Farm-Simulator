@@ -14,4 +14,10 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>RES</name>
+			<value>file:/home/vietanhdev/Workspaces/FunnyFarm/res</value>
+		</variable>
+	</variableList>
 </projectDescription>

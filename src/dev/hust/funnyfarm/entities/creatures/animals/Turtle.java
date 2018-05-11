@@ -1,5 +1,6 @@
 package dev.hust.funnyfarm.entities.creatures.animals;
 
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -16,7 +17,7 @@ public class Turtle extends Animal implements Swimmable {
 	public Turtle(Handler handler, float x, float y) {
 		super(handler, x, y, Animal.DEFAULT_CREATURE_WIDTH, Animal.DEFAULT_CREATURE_HEIGHT);
 		
-		
+		setSpeed(1.0f);
 		setBounds(0, 0, 64, 64);
 
 		//Animations
@@ -24,12 +25,15 @@ public class Turtle extends Animal implements Swimmable {
 		Animation animUp = new Animation(500, Assets.turtle_up);
 		Animation animLeft = new Animation(500, Assets.turtle_left);
 		Animation animRight = new Animation(500, Assets.turtle_right);
+		Animation animSleep = new Animation(500, Assets.turtle_sleep);
+		Animation animDead = new Animation(500, Assets.turtle_dead);
+		
 		Animation animSwimDown = new Animation(500, Assets.turtle_swim_down);
 		Animation animSwimUp = new Animation(500, Assets.turtle_swim_up);
 		Animation animSwimLeft = new Animation(500, Assets.turtle_swim_left);
 		Animation animSwimRight = new Animation(500, Assets.turtle_swim_right);
 		
-		super.setAnimations(animDown, animUp, animLeft, animRight);
+		super.setAnimations(animDown, animUp, animLeft, animRight, animSleep, animDead);
 		this.setSwimAnimations(animSwimDown, animSwimUp, animSwimLeft, animSwimRight);
 		
 		setCurrentEnvironment("dirt");
@@ -59,34 +63,48 @@ public class Turtle extends Animal implements Swimmable {
 	@Override
 	public void tick() {
 		
+		if (!isLiving()) return;
+		
+		sleep();
+		
 		if (getCurrentEnvironment() == "water") {
 			swim();
 		} else {
 			walk();
 		}
 		
+		updateBodyStatus();
+		
 	}
 	
 	
 	public void swim() {
-		//Animations
-		animSwimDown.tick();
-		animSwimUp.tick();
-		animSwimRight.tick();
-		animSwimLeft.tick();
-		
-		//Movement
-		getMove();
-		move();
+		if (!isSleeping()) {
+			//Animations
+			animSwimDown.tick();
+			animSwimUp.tick();
+			animSwimRight.tick();
+			animSwimLeft.tick();
+			
+			//Movement
+			getMove();
+			move();
+		}
 	}
 	
 	
 	@Override
 	public void render(Graphics g) {
 		g.drawImage(getCurrentAnimationFrame(), (int) (getX() - getHandler().getGameCamera().getxOffset()), (int) (getY() -  getHandler().getGameCamera().getyOffset()), getWidth(), getHeight(), null);
+		printInfo(g);
 	}
 	
 	private BufferedImage getCurrentAnimationFrame(){
+		
+		if (!isLiving()) return getAnimDead().getCurrentFrame();
+		
+		if (isSleeping())
+			return getAnimSleep().getCurrentFrame();
 		
 		String env = getCurrentEnvironment();
 
@@ -122,6 +140,15 @@ public class Turtle extends Animal implements Swimmable {
 		return "water dirt";
 	}
 
+	@Override
+	public long getSleepTime() {
+		return 800;
+	}
+
+	@Override
+	public long getTimeBetweenSleeps() {
+		return 3000;
+	}
 
 	
 }

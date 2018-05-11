@@ -11,15 +11,23 @@ import dev.hust.funnyfarm.tiles.Tile;
 
 public abstract class Animal extends Creature implements Walkable {
 	
-	public static final float DEFAULT_SPEED = 5.0f;
+	public static final float DEFAULT_SPEED = 3.0f;
 	
 	private float speed;
 	private float xMove, yMove;
 	
-	String currentEnvironment;
+	private String currentEnvironment;
+	
+	// Sleeping animal
+	private boolean isSleeping = false; 
+	private long lastSleepTime;
+	private long sleepTimeRemaining;
+	private long lastSleepTimeCheck;
 	
 	//Animations
 	private Animation animDown, animUp, animLeft, animRight;
+	private Animation animSleep;
+	private Animation animDead;
 
 	public Animal(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);
@@ -27,6 +35,27 @@ public abstract class Animal extends Creature implements Walkable {
 		speed = DEFAULT_SPEED;
 		xMove = 0;
 		yMove = 0;
+	}
+	
+	
+	abstract public long getSleepTime();
+	abstract public long getTimeBetweenSleeps();
+	
+	
+	public long getLastSleepTime() {
+		return lastSleepTime;
+	}
+	
+	public void setLastSleepTime(long t) {
+		lastSleepTime = t;
+	}
+	
+	public boolean isSleeping() {
+		return isSleeping;
+	}
+	
+	public void setSleeping(boolean sleeping) {
+		this.isSleeping = sleeping;
 	}
 	
 	public Animation getAnimDown() {
@@ -41,6 +70,12 @@ public abstract class Animal extends Creature implements Walkable {
 	public Animation getAnimRight() {
 		return animRight;
 	}
+	public Animation getAnimSleep() {
+		return animSleep;
+	}
+	public Animation getAnimDead() {
+		return animDead;
+	}
 	
 	public String getCurrentEnvironment() {
 		return currentEnvironment;
@@ -50,31 +85,69 @@ public abstract class Animal extends Creature implements Walkable {
 		currentEnvironment = env;
 	}
 	
-	public void setAnimations(Animation animDown, Animation animUp, Animation animLeft, Animation animRight) {
+	public void setAnimations(Animation animDown, Animation animUp, Animation animLeft, Animation animRight, Animation animSleep, Animation animDead) {
 		this.animDown = animDown;
 		this.animUp = animUp;
 		this.animLeft = animLeft;
 		this.animRight = animRight;
+		this.animSleep = animSleep;
+		this.animDead = animDead;
 	}
 	
 	@Override
 	public void tick() {
-		//Animations
-		walk();
 		
+		if (!isLiving()) return;
+		
+		sleep();
+		walk();
+		updateBodyStatus();
+		
+	}
+	
+	public void sleep() {
+		long currentTime = getHandler().getGame().getSimTime();
+		if (isSleeping()) {
+			
+			long delta = currentTime - lastSleepTimeCheck;
+			sleepTimeRemaining -= delta;
+			
+			
+			// Finish sleeping
+			if (sleepTimeRemaining <= 0) {
+				setLastSleepTime(currentTime);
+				setSleeping(false);
+				
+				// After sleeping, the animals receive health
+				increaseHealth(30);
+			}
+			
+			lastSleepTimeCheck = currentTime;
+			return;
+		}
+		
+		
+		if (currentTime - getLastSleepTime() >= getTimeBetweenSleeps()) {
+			setSleeping(true);
+			sleepTimeRemaining = getSleepTime();
+			lastSleepTimeCheck = currentTime;
+		}
 	}
 	
 	
 	public void walk() {
-		//Animations
-		getAnimDown().tick();
-		getAnimUp().tick();
-		getAnimRight().tick();
-		getAnimLeft().tick();
+		if (!isSleeping()) {
+			//Animations
+			getAnimDown().tick();
+			getAnimUp().tick();
+			getAnimRight().tick();
+			getAnimLeft().tick();
+			
+			//Movement
+			getMove();
+			move();
+		}
 		
-		//Movement
-		getMove();
-		move();
 	}
 	
 	
@@ -153,13 +226,13 @@ public abstract class Animal extends Creature implements Walkable {
 		
 			
 		if (direction == 0) {
-			yMove = -speed;
+			yMove = -getSpeed();
 		} else if (direction == 1) {
-			yMove = speed;
+			yMove = getSpeed();
 		} else if (direction == 2) {
-			xMove = -speed;
+			xMove = -getSpeed();
 		} else if (direction == 3) {
-			xMove = speed;
+			xMove = getSpeed();
 		} else if (direction == 4) {
 			xMove = 0;
 			yMove = 0;
@@ -169,18 +242,21 @@ public abstract class Animal extends Creature implements Walkable {
 	
 	@Override
 	public void render(Graphics g) {
+		printInfo(g);
 		g.drawImage(getCurrentAnimationFrame(), (int) (getX() -  getHandler().getGameCamera().getxOffset()), (int) (getY() -  getHandler().getGameCamera().getyOffset()), getWidth(), getWidth(), null);
 	}
 	
 	private BufferedImage getCurrentAnimationFrame(){
+		if (isSleeping())
+			return getAnimSleep().getCurrentFrame();
 		if(xMove < 0){
-			return animLeft.getCurrentFrame();
+			return getAnimLeft().getCurrentFrame();
 		} else if (xMove > 0){
 			return animRight.getCurrentFrame();
 		} else if (yMove < 0){
-			return animUp.getCurrentFrame();
+			return getAnimUp().getCurrentFrame();
 		} else {
-			return animDown.getCurrentFrame();
+			return getAnimDown().getCurrentFrame();
 		}
 	}
 
@@ -207,16 +283,19 @@ public abstract class Animal extends Creature implements Walkable {
 	}
 	
 	public float getSpeed() {
-		return speed;
+		float retSpeed = speed;
+		
+		if (getHealth() < 50) retSpeed *= 0.6;
+		if (getFood() < 50) retSpeed *= 0.6;
+		if (getWater() < 50) retSpeed *= 0.6;
+		
+		return retSpeed;
+		
 	}
 
 	public void setSpeed(float speed) {
 		this.speed = speed;
 	}
 	
-	@Override
-	public void die(){
-		this.setHealth(0);
-	}
 	
 }

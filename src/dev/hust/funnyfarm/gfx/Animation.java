@@ -8,6 +8,7 @@ public class Animation {
 	private long lastTime, timer;
 	private BufferedImage[] frames;
 	
+	
 	public Animation(int speed, BufferedImage[] frames){
 		this.speed = speed;
 		this.frames = frames;
@@ -31,5 +32,7 @@ public class Animation {
 	public BufferedImage getCurrentFrame(){
 		return frames[index];
 	}
+	
+	
 
 }

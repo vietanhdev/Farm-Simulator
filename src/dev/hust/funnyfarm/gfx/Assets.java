@@ -11,9 +11,9 @@ public class Assets {
 	
 	public static BufferedImage dirt, grass, fence, tree, rock, water, flowerpot;
 	public static BufferedImage wood;
-	public static BufferedImage[] fish_down, fish_up, fish_left, fish_right;
+	public static BufferedImage[] fish_down, fish_up, fish_left, fish_right, fish_sleep, fish_dead;
 	
-	public static BufferedImage[] turtle_down, turtle_up, turtle_left, turtle_right;
+	public static BufferedImage[] turtle_down, turtle_up, turtle_left, turtle_right, turtle_sleep, turtle_dead;
 	public static BufferedImage[] turtle_swim_down, turtle_swim_up, turtle_swim_left, turtle_swim_right;
 	
 	public static BufferedImage[] btn_start;
@@ -34,6 +34,14 @@ public class Assets {
 		fish_up = new BufferedImage[2];
 		fish_left = new BufferedImage[2];
 		fish_right = new BufferedImage[2];
+		fish_sleep = new BufferedImage[2];
+		fish_dead = new BufferedImage[2];
+		
+		fish_sleep[0] = sheet.crop(width * 4, height, width, height);
+		fish_sleep[1] = sheet.crop(width * 5, height, width, height);
+		
+		fish_dead[0] = sheet.crop(width * 6, height, width, height);
+		fish_dead[1] = sheet.crop(width * 7, height, width, height);
 		
 		fish_down[0] = sheet.crop(width * 4, 0, width, height);
 		fish_down[1] = sheet.crop(width * 5, 0, width, height);
@@ -48,6 +56,11 @@ public class Assets {
 		turtle_up = new BufferedImage[2];
 		turtle_left = new BufferedImage[2];
 		turtle_right = new BufferedImage[2];
+		turtle_sleep = new BufferedImage[2];
+		turtle_dead = new BufferedImage[2];
+		
+		turtle_dead[0] = sheet.crop(0, height * 9, 2*width, 2*height);
+		turtle_dead[1] = sheet.crop(width * 7, height, width, height);
 		
 		turtle_down[0] = sheet.crop(0, height*5, 2*width, 2*height);
 		turtle_down[1] = sheet.crop(2*width, height*5, 2*width, 2*height);
@@ -57,6 +70,9 @@ public class Assets {
 		turtle_right[1] = sheet.crop(2*width, height*3, 2*width, 2*height);
 		turtle_left[0] = sheet.crop(4*width, height*3, 2*width, 2*height);
 		turtle_left[1] = sheet.crop(6*width, height*3, 2*width, 2*height);
+		
+		turtle_sleep[0] = sheet.crop(4*width, height*5, 2*width, 2*height);
+		turtle_sleep[1] = sheet.crop(6*width, height*5, 2*width, 2*height);
 		
 		turtle_swim_down = new BufferedImage[2];
 		turtle_swim_up = new BufferedImage[2];

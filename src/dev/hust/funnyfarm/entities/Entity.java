@@ -11,7 +11,7 @@ public abstract class Entity {
 	private Handler handler;
 	private float x, y;
 	private int width, height;
-	private boolean active = true;
+	private boolean active;
 	private Rectangle bounds;
 	
 	
@@ -22,7 +22,7 @@ public abstract class Entity {
 		this.width = width;
 		this.height = height;
 		
-		
+		setActive(true);
 		bounds = new Rectangle(0, 0, width, height);
 	}
 	
@@ -31,7 +31,6 @@ public abstract class Entity {
 	public abstract void render(Graphics g);
 	
 	public abstract void die();
-	
 
 	
 	public boolean checkEntityCollisions(float xOffset, float yOffset){
@@ -101,8 +100,8 @@ public abstract class Entity {
 		return active;
 	}
 
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setActive(boolean status) {
+		this.active = status;
 	}
 	
 }

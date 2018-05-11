@@ -17,8 +17,38 @@ public class Fish extends Animal {
 		Animation animUp = new Animation(500, Assets.fish_up);
 		Animation animLeft = new Animation(500, Assets.fish_left);
 		Animation animRight = new Animation(500, Assets.fish_right);
-		super.setAnimations(animDown, animUp, animLeft, animRight);
+		Animation animSleep = new Animation(500, Assets.fish_sleep);
+		Animation animDead = new Animation(500, Assets.fish_dead);
 		
+		super.setAnimations(animDown, animUp, animLeft, animRight, animSleep, animDead);
+		
+	}
+	
+	@Override
+	public void tick() {
+		if (!isLiving()) return;
+		
+		sleep();
+		
+		//Animations
+		swim();
+		drink(5);
+		updateBodyStatus();
+		
+	}
+	
+	public void swim() {
+		if (!isSleeping()) {
+			//Animations
+			getAnimDown().tick();
+			getAnimUp().tick();
+			getAnimRight().tick();
+			getAnimLeft().tick();
+			
+			//Movement
+			getMove();
+			move();
+		}
 	}
 	
 	
@@ -31,6 +61,18 @@ public class Fish extends Animal {
 	@Override
 	public void die(){
 		System.out.println("You lose");
+	}
+
+
+	@Override
+	public long getSleepTime() {
+		return 500;
+	}
+
+
+	@Override
+	public long getTimeBetweenSleeps() {
+		return 2000;
 	}
 	
 

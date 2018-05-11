@@ -126,31 +126,26 @@ public class Game implements Runnable {
 		double delta = 0;
 		long now;
 		long lastTime = System.nanoTime();
-		long timer = 0;
-		//int ticks = 0;
 		
 		while(running){
 			now = System.nanoTime();
 			timePerTick = 1000000000 / getTimeSpeed();
-			delta += (now - lastTime) / timePerTick;
-			timer += now - lastTime;
+			delta += (now - lastTime) / timePerTick * 2;
 			lastTime = now;
 			
 			if(delta >= 1){
 				tick();
 				render();
-				//ticks++;
 				delta--;
-				increaseSimTime((long)delta);
-				//System.out.println("SimTime: " + getSimTime());
+				increaseSimTime(1);
+				System.out.println("SimTime: " + getSimTime());
 			}
 			
-			if(timer >= 1000000000){
-				
-				//ticks = 0;
-				timer = 0;
-				
+
+			if (getSimTime() > 1000000000000000l) {
+				setSimTime(0);
 			}
+			
 		}
 		
 		stop();
