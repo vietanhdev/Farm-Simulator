@@ -34,11 +34,14 @@ public class EntityManager {
 	}
 	
 	public void tick(){
+		
+		//=============================================
+		// Handle click on an entity
+		
 		boolean isClicked = getHandler().getMouseManager().isMouseClicked();
 		
 		// x, y of click calculated by window
 		int xClicked_win = 0, yClicked_win = 0;
-		
 		// x, y of click with game camera offset
 		int xClicked = 0, yClicked = 0;
 		
@@ -48,7 +51,7 @@ public class EntityManager {
 			yClicked_win = getHandler().getMouseManager().getMouseClickedY();
 			
 			xClicked = xClicked_win + (int)getHandler().getGameCamera().getxOffset();
-			yClicked = yClicked_win + getHandler().getMouseManager().getMouseClickedY() + (int)getHandler().getGameCamera().getyOffset();
+			yClicked = yClicked_win + (int)getHandler().getGameCamera().getyOffset();
 			
 			// Skip if click area in toolbar
 			if (yClicked_win < 64) {
@@ -56,6 +59,8 @@ public class EntityManager {
 			}
 		}
 		
+		
+		// === Click to add a creature ===
 		SelectableButton selectedBtn = null;
 		String name = null;
 		if (isClicked) {
@@ -69,7 +74,7 @@ public class EntityManager {
 					int xPos = xClicked_win;
 					int yPos = yClicked_win;
 					
-					System.out.println(name);
+					
 					
 					Entity newEntity = null;
 					switch (name) {
@@ -78,7 +83,7 @@ public class EntityManager {
 					case "Add Horse": newEntity = new Horse(handler, xPos, yPos);  this.addEntity(newEntity); break;
 					case "Add Cow": newEntity = new Cow(handler, xPos, yPos);  this.addEntity(newEntity); break;
 					case "Add Pig": newEntity = new Pig(handler, xPos, yPos);  this.addEntity(newEntity); break;
-					case "Add Dog": System.out.println("Da add con dog");newEntity = new Dog(handler, xPos, yPos);  entities.add(newEntity); break;
+					case "Add Dog": newEntity = new Dog(handler, xPos, yPos);  this.addEntity(newEntity); break;
 					case "Add Chicken": newEntity = new Chicken(handler, xPos, yPos);  this.addEntity(newEntity); break;
 					case "Add Flower": newEntity = new Flower(handler, xPos, yPos);  this.addEntity(newEntity); break;
 					}
@@ -109,19 +114,18 @@ public class EntityManager {
 				it.remove();
 			}
 			
-			if (isClicked) {
-				
-				// Check if clicked a creature
-				if (e instanceof Creature) {
+			// === Click to feed a creature ===
+			if (isClicked && e instanceof Creature) {
 
 					Rectangle bound = new Rectangle(
 							(int)(e.getX()),
 							(int)(e.getY()),
 							e.getBounds().width, e.getBounds().height);
 					
-
+//					System.out.println(name);
 					if (bound.contains(xClicked, yClicked)) {
 						Creature c = (Creature) e;
+						System.out.println(name);
 						
 						
 						if (selectedBtn != null) {
@@ -140,7 +144,7 @@ public class EntityManager {
 						
 						
 					}
-				}
+
 			}
 				
 			e.tick();

@@ -127,7 +127,7 @@ public abstract class Creature extends Entity {
 	}
 	
 	public void drink(double amount) {
-		this.water = amount;
+		this.water += amount;
 	}
 	
 	public double getFood() {

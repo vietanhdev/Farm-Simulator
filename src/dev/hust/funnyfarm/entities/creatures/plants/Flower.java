@@ -17,5 +17,10 @@ public  class Flower extends Plant {
 		super.setAnimations(animSmall, animBig, animDead);
 	}
 	
+	@Override
+	public String getEnvironments() {
+		return "flowerpot";
+	}
+	
 }
 
