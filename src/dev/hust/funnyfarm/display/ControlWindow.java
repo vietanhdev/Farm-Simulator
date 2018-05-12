@@ -95,6 +95,6 @@ public class ControlWindow {
       controlPanel.add(addTimeSpeed);
       controlPanel.add(calculateFood);
       
-      mainFrame.setVisible(true);  
+      mainFrame.setVisible(false);  
    }
 }

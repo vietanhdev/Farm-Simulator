@@ -10,7 +10,6 @@ import dev.hust.funnyfarm.gfx.GameCamera;
 import dev.hust.funnyfarm.input.KeyManager;
 import dev.hust.funnyfarm.input.MouseManager;
 import dev.hust.funnyfarm.states.GameState;
-import dev.hust.funnyfarm.states.MenuState;
 import dev.hust.funnyfarm.states.State;
 
 public class Game implements Runnable {
@@ -33,7 +32,6 @@ public class Game implements Runnable {
 	
 	//States
 	public State gameState;
-	public State menuState;
 	
 	//Input
 	private KeyManager keyManager;
@@ -67,15 +65,17 @@ public class Game implements Runnable {
 
 		
 		// Control Window
-		controlWindow = new ControlWindow(this);
-		controlWindow.showControlWindow();
+//		controlWindow = new ControlWindow(this);
+//		controlWindow.showControlWindow();
 		
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0);
 		
 		gameState = new GameState(handler);
-		menuState = new MenuState(handler);
-		State.setState(menuState);
+//		menuState = new MenuState(handler);
+		State.setState(gameState);
+		
+		
 		
 	}
 	
@@ -96,6 +96,7 @@ public class Game implements Runnable {
 		
 		if(State.getState() != null)
 			State.getState().tick();
+		
 	}
 	
 	private void render(){

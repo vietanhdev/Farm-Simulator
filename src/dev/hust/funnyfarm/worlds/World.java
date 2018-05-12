@@ -38,12 +38,12 @@ public class World {
 		entityManager.addEntity(t);
 		entityManager.addEntity(new Turtle(handler, 500, 200));
 		
-		entityManager.addEntity(new Pig(handler, 10*64, 64));
+		entityManager.addEntity(new Pig(handler, 10*64, 2*64));
 		
 		Horse h1 = new Horse(handler, 14*64, 64);
 		h1.setLastSleepTime(1145);
 		entityManager.addEntity(h1);
-		entityManager.addEntity(new Horse(handler, 16*64, 64));
+		entityManager.addEntity(new Horse(handler, 16*64, 2*64));
 		h1 = new Horse(handler, 16*64, 200);
 		h1.setLastSleepTime(245);
 		entityManager.addEntity(h1);
@@ -76,21 +76,21 @@ public class World {
 		entityManager.addEntity(g);
 		entityManager.addEntity(new Chicken(handler, 2*64, 10*64));
 		
-		entityManager.addEntity(new Flower(handler, 2*64, 6*64));
-		entityManager.addEntity(new Flower(handler, 3*64, 6*64));
-		entityManager.addEntity(new Flower(handler, 4*64, 6*64));
-		entityManager.addEntity(new Flower(handler, 5*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 2*64, 7*64));
+		entityManager.addEntity(new Flower(handler, 3*64, 7*64));
+		entityManager.addEntity(new Flower(handler, 4*64, 7*64));
+		entityManager.addEntity(new Flower(handler, 5*64, 7*64));
 		
-		entityManager.addEntity(new Flower(handler, 7*64, 6*64));
-		entityManager.addEntity(new Flower(handler, 8*64, 6*64));
-		entityManager.addEntity(new Flower(handler, 9*64, 6*64));
-		entityManager.addEntity(new Flower(handler, 10*64, 6*64));
-		entityManager.addEntity(new Flower(handler, 11*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 7*64, 7*64));
+		entityManager.addEntity(new Flower(handler, 8*64, 7*64));
+		entityManager.addEntity(new Flower(handler, 9*64, 7*64));
+		entityManager.addEntity(new Flower(handler, 10*64, 7*64));
+		entityManager.addEntity(new Flower(handler, 11*64, 7*64));
 		
-		entityManager.addEntity(new Flower(handler, 13*64, 6*64));
-		entityManager.addEntity(new Flower(handler, 14*64, 6*64));
-		entityManager.addEntity(new Flower(handler, 15*64, 6*64));
-		entityManager.addEntity(new Flower(handler, 16*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 13*64, 7*64));
+		entityManager.addEntity(new Flower(handler, 14*64, 7*64));
+		entityManager.addEntity(new Flower(handler, 15*64, 7*64));
+		entityManager.addEntity(new Flower(handler, 16*64, 7*64));
 		
 		itemManager = new ItemManager(handler);
 		
@@ -127,6 +127,7 @@ public class World {
 		itemManager.render(g);
 		//Entities
 		entityManager.render(g);
+		
 	}
 	
 	public Tile getTile(int x, int y){

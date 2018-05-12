@@ -17,26 +17,40 @@ public class Assets {
 	public static BufferedImage[] chicken_down, chicken_up, chicken_left, chicken_right, chicken_sleep, chicken_dead;
 	public static BufferedImage[] horse_down, horse_up, horse_left, horse_right, horse_sleep, horse_dead;
 	public static BufferedImage[] pig_down, pig_up, pig_left, pig_right, pig_sleep, pig_dead;
-	
 	public static BufferedImage[] turtle_down, turtle_up, turtle_left, turtle_right, turtle_sleep, turtle_dead;
 	public static BufferedImage[] turtle_swim_down, turtle_swim_up, turtle_swim_left, turtle_swim_right;
-	
 	public static BufferedImage[] flower_big, flower_small, flower_dead;
 	
-	public static BufferedImage[] btn_start;
 	public static BufferedImage inventoryScreen;
+	
+	public static BufferedImage[] btn_water;
+	public static BufferedImage[] btn_foodbag;
+	public static BufferedImage[] btn_empty;
 
 	public static void init(){
 		font28 = FontLoader.loadFont("res/fonts/slkscr.ttf", 28);
 		
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
+		SpriteSheet buttonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/buttons.png"));
+		
+		
+		btn_water = new BufferedImage[3];
+		btn_water[0] = buttonSheet.crop(0, 0, 64, 64);
+		btn_water[1] = buttonSheet.crop(64, 0, 64, 64);
+		btn_water[2] = buttonSheet.crop(64*2, 0, 64, 64);
+		
+		btn_foodbag = new BufferedImage[3];
+		btn_foodbag[0] = buttonSheet.crop(0, 64, 64, 64);
+		btn_foodbag[1] = buttonSheet.crop(64, 64, 64, 64);
+		btn_foodbag[2] = buttonSheet.crop(64*2, 64, 64, 64);
+		
+		btn_empty = new BufferedImage[3];
+		btn_empty[0] = buttonSheet.crop(0, 2*64, 64, 64);
+		btn_empty[1] = buttonSheet.crop(64, 2*64, 64, 64);
+		btn_empty[2] = buttonSheet.crop(64*2, 2*64, 64, 64);
+		
 		
 		wood = sheet.crop(width, height, width, height);
-		
-		btn_start = new BufferedImage[2];
-		btn_start[0] = sheet.crop(width * 6, height * 4, width * 2, height);
-		btn_start[1] = sheet.crop(width * 6, height * 5, width * 2, height);
-		
 		fish_down = new BufferedImage[2];
 		fish_up = new BufferedImage[2];
 		fish_left = new BufferedImage[2];
