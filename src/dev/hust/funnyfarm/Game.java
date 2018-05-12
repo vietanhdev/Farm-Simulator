@@ -138,12 +138,20 @@ public class Game implements Runnable {
 				render();
 				delta--;
 				increaseSimTime(1);
-				System.out.println("SimTime: " + getSimTime());
+				//System.out.println("SimTime: " + getSimTime());
 			}
 			
 
 			if (getSimTime() > 1000000000000000l) {
 				setSimTime(0);
+			}
+			
+			// Handle clicks
+			if(getHandler().getMouseManager().isMouseClicked()) {
+				int clickedX = getHandler().getMouseManager().getMouseClickedX();
+				int clickedY = getHandler().getMouseManager().getMouseClickedY();
+				
+				System.out.println(clickedX + "   " + clickedY);
 			}
 			
 		}
@@ -191,6 +199,10 @@ public class Game implements Runnable {
 	
 	public int getHeight(){
 		return height;
+	}
+	
+	public Handler getHandler() {
+		return handler;
 	}
 	
 	public synchronized void start(){

@@ -81,16 +81,16 @@ public class World {
 		entityManager.addEntity(new Flower(handler, 4*64, 6*64));
 		entityManager.addEntity(new Flower(handler, 5*64, 6*64));
 		
-		entityManager.addEntity(new Flower(handler, 6*64, 6*64));
 		entityManager.addEntity(new Flower(handler, 7*64, 6*64));
 		entityManager.addEntity(new Flower(handler, 8*64, 6*64));
 		entityManager.addEntity(new Flower(handler, 9*64, 6*64));
 		entityManager.addEntity(new Flower(handler, 10*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 11*64, 6*64));
 		
-		entityManager.addEntity(new Flower(handler, 12*64, 6*64));
 		entityManager.addEntity(new Flower(handler, 13*64, 6*64));
 		entityManager.addEntity(new Flower(handler, 14*64, 6*64));
 		entityManager.addEntity(new Flower(handler, 15*64, 6*64));
+		entityManager.addEntity(new Flower(handler, 16*64, 6*64));
 		
 		itemManager = new ItemManager(handler);
 		

@@ -96,9 +96,9 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (mouseClicked) return;
-		mouseClicked = true;
 		mouseClickedX = e.getX();
 		mouseClickedY = e.getY();
+		mouseClicked = true;
 	}
 
 	@Override
