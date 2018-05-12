@@ -1,5 +1,6 @@
 package dev.hust.funnyfarm.entities.creatures.animals;
 
+import dev.hust.funnyfarm.FoodType;
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.gfx.Animation;
 import dev.hust.funnyfarm.gfx.Assets;
@@ -27,6 +28,7 @@ public class Pig extends Animal {
 		
 		super.setAnimations(animDown, animUp, animLeft, animRight, animSleep, animDead);
 		
+		setFoodType(new FoodType("pigfood"));
 	}
 	
 	@Override

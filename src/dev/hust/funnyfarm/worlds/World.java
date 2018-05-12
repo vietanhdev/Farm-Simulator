@@ -1,6 +1,7 @@
 package dev.hust.funnyfarm.worlds;
 
 import java.awt.Graphics;
+import java.io.InputStream;
 
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.EntityManager;
@@ -10,6 +11,7 @@ import dev.hust.funnyfarm.entities.statics.Mannequin;
 import dev.hust.funnyfarm.items.ItemManager;
 import dev.hust.funnyfarm.tiles.Tile;
 import dev.hust.funnyfarm.utils.Utils;
+import sun.applet.Main;
 
 public class World {
 
@@ -141,7 +143,11 @@ public class World {
 	}
 	
 	private void loadWorld(String path){
-		String file = Utils.loadFileAsString(path);
+		InputStream in = Main.class.getResourceAsStream(path); 
+		String file = new String();
+		file = Utils.convertStreamToString(in);
+		
+		//String file = Utils.loadFileAsString(path);
 		String[] tokens = file.split("\\s+");
 		width = Utils.parseInt(tokens[0]);
 		height = Utils.parseInt(tokens[1]);

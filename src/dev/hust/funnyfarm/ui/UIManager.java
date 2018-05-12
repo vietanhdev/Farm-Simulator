@@ -69,8 +69,8 @@ public class UIManager {
 		g.setColor(Color.decode("#54442C"));
 		g.drawString("Feed", 10, 32);
 		
-		g.drawString("Add", 9*64 + 10, 32);
-		g.drawString("More", 9*64 + 2, 50);
+		g.drawString("Add", 10*64 + 10, 32);
+		g.drawString("More", 10*64 + 2, 50);
 		
 		g.setColor(Color.decode("#54442C"));
 		g.fillRect(0, 64, 8*64, 40);
@@ -217,8 +217,18 @@ public class UIManager {
 		this.addObject(btnPigFood);
 		
 		
+		FoodSelectButton btnFlowerFood = new FoodSelectButton("Flowerfood", 9*64, 0, 64, 64, Assets.flower_big[0]);
+		btnFlowerFood.setClicker(new ClickListener() {
+			@Override
+			public void onClick() {
+				setSelectedBtn(btnFlowerFood);
+			}
+		});
+		this.addObject(btnFlowerFood);
+		
+		
 		// Add creature buttons
-		AddCreatureButton btnAddFish = new AddCreatureButton("Add Fish", 10*64, 0, 64, 64, Assets.fish_right[0]);
+		AddCreatureButton btnAddFish = new AddCreatureButton("Add Fish", 11*64, 0, 64, 64, Assets.fish_right[0]);
 		btnAddFish.setClicker(new ClickListener() {
 			@Override
 			public void onClick() {
@@ -227,7 +237,7 @@ public class UIManager {
 		});
 		this.addObject(btnAddFish);
 		
-		AddCreatureButton btnAddTurtle = new AddCreatureButton("Add Turtle", 11*64, 0, 64, 64, Assets.turtle_right[0]);
+		AddCreatureButton btnAddTurtle = new AddCreatureButton("Add Turtle", 12*64, 0, 64, 64, Assets.turtle_right[0]);
 		btnAddTurtle.setClicker(new ClickListener() {
 			@Override
 			public void onClick() {
@@ -236,7 +246,7 @@ public class UIManager {
 		});
 		this.addObject(btnAddTurtle);
 		
-		AddCreatureButton btnAddCow = new AddCreatureButton("Add Cow", 12*64, 0, 64, 64, Assets.cow_right[0]);
+		AddCreatureButton btnAddCow = new AddCreatureButton("Add Cow", 13*64, 0, 64, 64, Assets.cow_right[0]);
 		btnAddCow.setClicker(new ClickListener() {
 			@Override
 			public void onClick() {
@@ -245,7 +255,7 @@ public class UIManager {
 		});
 		this.addObject(btnAddCow);
 		
-		AddCreatureButton btnAddDog = new AddCreatureButton("Add Dog", 13*64, 0, 64, 64, Assets.dog_right[0]);
+		AddCreatureButton btnAddDog = new AddCreatureButton("Add Dog", 14*64, 0, 64, 64, Assets.dog_right[0]);
 		btnAddDog.setClicker(new ClickListener() {
 			@Override
 			public void onClick() {
@@ -254,7 +264,7 @@ public class UIManager {
 		});
 		this.addObject(btnAddDog);
 				
-		AddCreatureButton btnAddChicken = new AddCreatureButton("Add Chicken", 14*64, 0, 64, 64, Assets.chicken_right[0]);
+		AddCreatureButton btnAddChicken = new AddCreatureButton("Add Chicken", 15*64, 0, 64, 64, Assets.chicken_right[0]);
 		btnAddChicken.setClicker(new ClickListener() {
 			@Override
 			public void onClick() {
@@ -264,7 +274,7 @@ public class UIManager {
 		this.addObject(btnAddChicken);
 		
 		
-		AddCreatureButton btnAddHorse = new AddCreatureButton("Add Horse", 15*64, 0, 64, 64, Assets.horse_right[0]);
+		AddCreatureButton btnAddHorse = new AddCreatureButton("Add Horse", 16*64, 0, 64, 64, Assets.horse_right[0]);
 		btnAddHorse.setClicker(new ClickListener() {
 			@Override
 			public void onClick() {
@@ -273,7 +283,7 @@ public class UIManager {
 		});
 		this.addObject(btnAddHorse);
 		
-		AddCreatureButton btnAddPig = new AddCreatureButton("Add Pig", 16*64, 0, 64, 64, Assets.pig_right[0]);
+		AddCreatureButton btnAddPig = new AddCreatureButton("Add Pig", 17*64, 0, 64, 64, Assets.pig_right[0]);
 		btnAddPig.setClicker(new ClickListener() {
 			@Override
 			public void onClick() {
@@ -281,5 +291,14 @@ public class UIManager {
 			}
 		});
 		this.addObject(btnAddPig);
+		
+		AddCreatureButton btnAddFlower = new AddCreatureButton("Add Flower", 18*64, 0, 64, 64, Assets.flower_big[0]);
+		btnAddFlower.setClicker(new ClickListener() {
+			@Override
+			public void onClick() {
+				setSelectedBtn(btnAddFlower);
+			}
+		});
+		this.addObject(btnAddFlower);
 	}
 }

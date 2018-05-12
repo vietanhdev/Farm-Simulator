@@ -140,12 +140,12 @@ public class Game implements Runnable {
 			}
 			
 			// Handle clicks
-			if(getHandler().getMouseManager().isMouseClicked()) {
-				int clickedX = getHandler().getMouseManager().getMouseClickedX();
-				int clickedY = getHandler().getMouseManager().getMouseClickedY();
-				
-				System.out.println(clickedX + "   " + clickedY);
-			}
+//			if(getHandler().getMouseManager().isMouseClicked()) {
+//				int clickedX = getHandler().getMouseManager().getMouseClickedX();
+//				int clickedY = getHandler().getMouseManager().getMouseClickedY();
+//				
+//				System.out.println(clickedX + "   " + clickedY);
+//			}
 			
 		}
 		
@@ -196,6 +196,10 @@ public class Game implements Runnable {
 	
 	public Handler getHandler() {
 		return handler;
+	}
+	
+	public State getGameState() {
+		return gameState;
 	}
 	
 	public synchronized void start(){

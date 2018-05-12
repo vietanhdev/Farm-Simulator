@@ -2,6 +2,7 @@ package dev.hust.funnyfarm.entities.creatures;
 
 import java.awt.Graphics;
 
+import dev.hust.funnyfarm.FoodType;
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.Entity;
 import dev.hust.funnyfarm.gfx.Text;
@@ -10,6 +11,8 @@ import dev.hust.funnyfarm.gfx.Text;
 public abstract class Creature extends Entity {
 	
 	private boolean isLiving = true;
+	
+	private FoodType foodType;
 	
 	private double health;
 	private double food;
@@ -32,6 +35,7 @@ public abstract class Creature extends Entity {
 		health = DEFAULT_HEALTH;
 		food = DEFAULT_FOOD;
 		water = DEFAULT_WATER;
+		foodType = new FoodType("");
 	}
 	
 	
@@ -118,8 +122,12 @@ public abstract class Creature extends Entity {
 		this.water = health;
 	}
 	
+	public void drink() {
+		this.water = DEFAULT_WATER;
+	}
+	
 	public void drink(double amount) {
-		this.water += amount;
+		this.water = amount;
 	}
 	
 	public double getFood() {
@@ -130,8 +138,13 @@ public abstract class Creature extends Entity {
 		this.food = health;
 	}
 	
-	public void eat(double amount) {
-		this.food += amount;
+	public boolean eat(FoodType ft) {
+		if (ft.getName().equals(getFoodType().getName())) {
+			setFood(DEFAULT_FOOD);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public void printInfo(Graphics g) {
@@ -167,6 +180,16 @@ public abstract class Creature extends Entity {
 
 	public String getEnvironments() {
 		return "";
+	}
+
+
+	public FoodType getFoodType() {
+		return foodType;
+	}
+
+
+	public void setFoodType(FoodType foodType) {
+		this.foodType = foodType;
 	}
 	
 }

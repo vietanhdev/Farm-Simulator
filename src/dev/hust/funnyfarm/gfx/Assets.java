@@ -31,7 +31,7 @@ public class Assets {
 	public static BufferedImage[] btn_reset;
 
 	public static void init(){
-		font28 = FontLoader.loadFont("res/fonts/slkscr.ttf", 28);
+		font28 = FontLoader.loadFont("/fonts/slkscr.ttf", 28);
 		
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
 		SpriteSheet buttonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/buttons.png"));
