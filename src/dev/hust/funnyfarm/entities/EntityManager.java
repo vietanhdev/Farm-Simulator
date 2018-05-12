@@ -9,7 +9,10 @@ import java.util.Iterator;
 import dev.hust.funnyfarm.FoodType;
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.creatures.Creature;
+import dev.hust.funnyfarm.entities.creatures.animals.*;
+import dev.hust.funnyfarm.entities.creatures.plants.*;
 import dev.hust.funnyfarm.states.GameState;
+import dev.hust.funnyfarm.ui.SelectableButton;
 
 
 public class EntityManager {
@@ -32,17 +35,72 @@ public class EntityManager {
 	
 	public void tick(){
 		boolean isClicked = getHandler().getMouseManager().isMouseClicked();
+		
+		// x, y of click calculated by window
+		int xClicked_win = 0, yClicked_win = 0;
+		
+		// x, y of click with game camera offset
 		int xClicked = 0, yClicked = 0;
+		
 		if (isClicked) {
-			xClicked = getHandler().getMouseManager().getMouseClickedX() + (int)getHandler().getGameCamera().getxOffset();
-			yClicked = getHandler().getMouseManager().getMouseClickedY() + (int)getHandler().getGameCamera().getyOffset();
+			
+			xClicked_win = getHandler().getMouseManager().getMouseClickedX();
+			yClicked_win = getHandler().getMouseManager().getMouseClickedY();
+			
+			xClicked = xClicked_win + (int)getHandler().getGameCamera().getxOffset();
+			yClicked = yClicked_win + getHandler().getMouseManager().getMouseClickedY() + (int)getHandler().getGameCamera().getyOffset();
 			
 			// Skip if click area in toolbar
-			if (yClicked < 64) {
+			if (yClicked_win < 64) {
 				isClicked = false;
 			}
 		}
 		
+		SelectableButton selectedBtn = null;
+		String name = null;
+		if (isClicked) {
+			GameState gameState = (GameState) getHandler().getGame().getGameState();
+			selectedBtn = gameState.getUIManager().getSelectedBtn();
+			
+			if (selectedBtn != null) {
+				name = selectedBtn.getName();
+				
+				if (name.contains("Add")) {
+					int xPos = xClicked_win;
+					int yPos = yClicked_win;
+					
+					System.out.println(name);
+					
+					Entity newEntity = null;
+					switch (name) {
+					case "Add Fish": newEntity = new Fish(handler, xPos, yPos);  this.addEntity(newEntity); break;
+					case "Add Turtle": newEntity = new Turtle(handler, xPos, yPos);  this.addEntity(newEntity); break;
+					case "Add Horse": newEntity = new Horse(handler, xPos, yPos);  this.addEntity(newEntity); break;
+					case "Add Cow": newEntity = new Cow(handler, xPos, yPos);  this.addEntity(newEntity); break;
+					case "Add Pig": newEntity = new Pig(handler, xPos, yPos);  this.addEntity(newEntity); break;
+					case "Add Dog": System.out.println("Da add con dog");newEntity = new Dog(handler, xPos, yPos);  entities.add(newEntity); break;
+					case "Add Chicken": newEntity = new Chicken(handler, xPos, yPos);  this.addEntity(newEntity); break;
+					case "Add Flower": newEntity = new Flower(handler, xPos, yPos);  this.addEntity(newEntity); break;
+					}
+					
+					if (newEntity != null && newEntity.checkEntityCollisions(0f, 0f)) {
+						
+						Iterator<Entity> it = entities.iterator();
+						while(it.hasNext()){
+							Entity e = it.next();
+							if(e == newEntity) {
+								it.remove();
+							}
+						}
+						
+					}
+					
+					
+				}
+			
+			}
+			
+		}
 		
 		Iterator<Entity> it = entities.iterator();
 		while(it.hasNext()){
@@ -52,6 +110,7 @@ public class EntityManager {
 			}
 			
 			if (isClicked) {
+				
 				// Check if clicked a creature
 				if (e instanceof Creature) {
 
@@ -63,10 +122,9 @@ public class EntityManager {
 
 					if (bound.contains(xClicked, yClicked)) {
 						Creature c = (Creature) e;
-						GameState gameState = (GameState) getHandler().getGame().getGameState();
 						
-						if (gameState.getUIManager().getSelectedBtn() != null) {
-							String name = gameState.getUIManager().getSelectedBtn().getName();
+						
+						if (selectedBtn != null) {
 							
 							// Eat
 							if (name.contains("food"))

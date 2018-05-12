@@ -94,7 +94,6 @@ public class World {
 		entityManager.addEntity(new Flower(handler, 15*64, 7*64));
 		entityManager.addEntity(new Flower(handler, 16*64, 7*64));
 		
-		itemManager = new ItemManager(handler);
 		
 		// Add static entity into game
 		entityManager.addEntity(new Mannequin(handler, 15, 300));
@@ -102,7 +101,7 @@ public class World {
 		entityManager.addEntity(new Mannequin(handler, 750, 300));
 		entityManager.addEntity(new Mannequin(handler, 1100, 300));
 
-		
+		itemManager = new ItemManager(handler);
 		
 		loadWorld(path);
 		
