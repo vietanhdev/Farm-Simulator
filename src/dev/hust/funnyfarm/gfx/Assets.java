@@ -26,6 +26,9 @@ public class Assets {
 	public static BufferedImage[] btn_water;
 	public static BufferedImage[] btn_foodbag;
 	public static BufferedImage[] btn_empty;
+	public static BufferedImage[] btn_add;
+	public static BufferedImage[] btn_sub;
+	public static BufferedImage[] btn_reset;
 
 	public static void init(){
 		font28 = FontLoader.loadFont("res/fonts/slkscr.ttf", 28);
@@ -48,6 +51,21 @@ public class Assets {
 		btn_empty[0] = buttonSheet.crop(0, 2*64, 64, 64);
 		btn_empty[1] = buttonSheet.crop(64, 2*64, 64, 64);
 		btn_empty[2] = buttonSheet.crop(64*2, 2*64, 64, 64);
+		
+		btn_add = new BufferedImage[3];
+		btn_add[0] = buttonSheet.crop(0, 3*64, 64, 64);
+		btn_add[1] = buttonSheet.crop(64, 3*64, 64, 64);
+		btn_add[2] = buttonSheet.crop(64*2, 3*64, 64, 64);
+		
+		btn_sub = new BufferedImage[3];
+		btn_sub[0] = buttonSheet.crop(0, 4*64, 64, 64);
+		btn_sub[1] = buttonSheet.crop(64, 4*64, 64, 64);
+		btn_sub[2] = buttonSheet.crop(64*2, 4*64, 64, 64);
+		
+		btn_reset = new BufferedImage[3];
+		btn_reset[0] = buttonSheet.crop(0, 5*64, 64, 64);
+		btn_reset[1] = buttonSheet.crop(64, 5*64, 64, 64);
+		btn_reset[2] = buttonSheet.crop(64*2, 5*64, 64, 64);
 		
 		
 		wood = sheet.crop(width, height, width, height);

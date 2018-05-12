@@ -4,7 +4,6 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
 import dev.hust.funnyfarm.display.Display;
-import dev.hust.funnyfarm.display.ControlWindow;
 import dev.hust.funnyfarm.gfx.Assets;
 import dev.hust.funnyfarm.gfx.GameCamera;
 import dev.hust.funnyfarm.input.KeyManager;
@@ -18,7 +17,6 @@ public class Game implements Runnable {
 	
 	int timeSpeed = DEFAULT_TIMESPEED; // fps
 	private Display display;
-	private ControlWindow controlWindow;
 	private int width, height;
 	public String title;
 	
@@ -64,15 +62,10 @@ public class Game implements Runnable {
 		Assets.init();
 
 		
-		// Control Window
-//		controlWindow = new ControlWindow(this);
-//		controlWindow.showControlWindow();
-		
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0);
 		
 		gameState = new GameState(handler);
-//		menuState = new MenuState(handler);
 		State.setState(gameState);
 		
 		
@@ -139,7 +132,6 @@ public class Game implements Runnable {
 				render();
 				delta--;
 				increaseSimTime(1);
-				//System.out.println("SimTime: " + getSimTime());
 			}
 			
 
