@@ -73,19 +73,19 @@ public class Game implements Runnable {
 	}
 	
 	private void tick(){
-		keyManager.tick();
+		getKeyManager().tick();
 		
-		if(handler.getKeyManager().up)
-			handler.getGameCamera().move(0, -10);
+		if(getHandler().getKeyManager().up)
+			getHandler().getGameCamera().move(0, -10);
 		
-		if(handler.getKeyManager().down)
-			handler.getGameCamera().move(0, 10);
+		if(getHandler().getKeyManager().down)
+			getHandler().getGameCamera().move(0, 10);
 		
-		if(handler.getKeyManager().left)
-			handler.getGameCamera().move(-10, 0);
+		if(getHandler().getKeyManager().left)
+			getHandler().getGameCamera().move(-10, 0);
 		
-		if(handler.getKeyManager().right)
-			handler.getGameCamera().move(10, 0);
+		if(getHandler().getKeyManager().right)
+			getHandler().getGameCamera().move(10, 0);
 		
 		if(State.getState() != null)
 			State.getState().tick();

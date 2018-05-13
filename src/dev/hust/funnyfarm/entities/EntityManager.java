@@ -52,7 +52,7 @@ public class EntityManager {
 			yClicked = getHandler().getMouseManager().getMouseClickedY() + (int)getHandler().getGameCamera().getyOffset();
 			
 			// Skip if click area in tool bar
-			if (getHandler().getMouseManager().getMouseClickedY() < 64) {
+			if (getHandler().getMouseManager().getMouseClickedY() < 105) {
 				isClicked = false;
 			}
 		}

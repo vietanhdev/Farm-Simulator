@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+<class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="dev.hust.funnyfarm.entities.creatures.FoodType" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/FoodType.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="569" y="150"/>    
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="dev.hust.funnyfarm.entities.creatures.plants.Flower" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/plants/Flower.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="97" width="193" x="1596" y="48"/>    
+    <position height="-1" width="-1" x="1872" y="242"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="dev.hust.funnyfarm.tiles.Tile" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/tiles/Tile.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="241" width="167" x="653" y="1556"/>    
+    <position height="-1" width="-1" x="868" y="1330"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="dev.hust.funnyfarm.tiles.DirtTile" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/tiles/DirtTile.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="79" width="110" x="836" y="1549"/>    
+    <position height="-1" width="-1" x="1145" y="1196"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="dev.hust.funnyfarm.tiles.FenceTile" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/tiles/FenceTile.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="79" width="123" x="893" y="1618"/>    
+    <position height="-1" width="-1" x="1160" y="1303"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="dev.hust.funnyfarm.tiles.FlowerPotTile" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/tiles/FlowerPotTile.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="989" y="1754"/>    
+    <position height="-1" width="-1" x="1184" y="1412"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="dev.hust.funnyfarm.tiles.GrassTile" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/tiles/GrassTile.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="976" y="1873"/>    
+    <position height="-1" width="-1" x="1186" y="1523"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="dev.hust.funnyfarm.tiles.WaterTile" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/tiles/WaterTile.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="79" width="122" x="750" y="1866"/>    
+    <position height="-1" width="-1" x="1113" y="1047"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="dev.hust.funnyfarm.ui.UIManager" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/ui/UIManager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="367" width="207" x="2877" y="677"/>    
+    <position height="-1" width="-1" x="2680" y="646"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -138,7 +138,7 @@
   </class>  
   <class id="16" language="java" name="dev.hust.funnyfarm.ui.UIObject" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/ui/UIObject.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="457" width="198" x="3214" y="845"/>    
+    <position height="-1" width="-1" x="2688" y="1080"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -147,7 +147,7 @@
   </class>  
   <class id="17" language="java" name="dev.hust.funnyfarm.ui.SelectableButton" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/ui/SelectableButton.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="169" width="359" x="3507" y="542"/>    
+    <position height="-1" width="-1" x="3094" y="574"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -156,7 +156,7 @@
   </class>  
   <class id="18" language="java" name="dev.hust.funnyfarm.ui.UIImageButton" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/ui/UIImageButton.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="295" width="351" x="3525" y="846"/>    
+    <position height="-1" width="-1" x="3076" y="957"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -165,7 +165,7 @@
   </class>  
   <class id="19" language="java" name="dev.hust.funnyfarm.ui.FoodSelectButton" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/ui/FoodSelectButton.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3633" y="352"/>    
+    <position height="-1" width="-1" x="3100" y="370"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -174,7 +174,7 @@
   </class>  
   <interface id="20" language="java" name="dev.hust.funnyfarm.ui.ClickListener" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/ui/ClickListener.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="4046" y="1039"/>    
+    <position height="-1" width="-1" x="3203" y="728"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -183,7 +183,7 @@
   </interface>  
   <class id="21" language="java" name="dev.hust.funnyfarm.ui.AddCreatureButton" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/ui/AddCreatureButton.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3259" y="486"/>    
+    <position height="-1" width="-1" x="2598" y="283"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -210,7 +210,7 @@
   </class>  
   <class id="24" language="java" name="dev.hust.funnyfarm.entities.creatures.animals.Animal" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/animals/Animal.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1494" y="842"/>    
+    <position height="-1" width="-1" x="1462" y="818"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -220,7 +220,7 @@
   <class id="25" language="java" name="dev.hust.funnyfarm.entities.creatures.animals.Chicken" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/animals/Chicken.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1861" y="514"/>    
+    <position height="-1" width="-1" x="1970" y="494"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -229,7 +229,7 @@
   </class>  
   <class id="26" language="java" name="dev.hust.funnyfarm.entities.creatures.animals.Cow" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/animals/Cow.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1866" y="713"/>    
+    <position height="-1" width="-1" x="1971" y="669"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -238,7 +238,7 @@
   </class>  
   <class id="27" language="java" name="dev.hust.funnyfarm.entities.creatures.animals.Dog" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/animals/Dog.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="151" width="200" x="1720" y="825"/>    
+    <position height="-1" width="-1" x="1969" y="854"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -247,7 +247,7 @@
   </class>  
   <class id="28" language="java" name="dev.hust.funnyfarm.entities.creatures.animals.Fish" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/animals/Fish.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1884" y="1067"/>    
+    <position height="-1" width="-1" x="1954" y="1046"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -256,7 +256,7 @@
   </class>  
   <class id="29" language="java" name="dev.hust.funnyfarm.entities.creatures.animals.Horse" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/animals/Horse.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2142" y="1188"/>    
+    <position height="-1" width="-1" x="1969" y="1243"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -265,7 +265,7 @@
   </class>  
   <class id="30" language="java" name="dev.hust.funnyfarm.entities.creatures.animals.Pig" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/animals/Pig.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1891" y="1242"/>    
+    <position height="-1" width="-1" x="1971" y="1427"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -274,7 +274,7 @@
   </class>  
   <class id="31" language="java" name="dev.hust.funnyfarm.entities.creatures.animals.Turtle" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/animals/Turtle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="367" width="345" x="1734" y="1363"/>    
+    <position height="-1" width="-1" x="1869" y="1716"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -284,7 +284,7 @@
   <interface id="32" language="java" name="dev.hust.funnyfarm.entities.creatures.animals.Soundable" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/animals/Soundable.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="79" width="200" x="2086" y="441"/>    
+    <position height="-1" width="-1" x="2383" y="461"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -294,7 +294,7 @@
   <interface id="33" language="java" name="dev.hust.funnyfarm.entities.creatures.animals.Swimmable" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/animals/Swimmable.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="79" width="200" x="2133" y="614"/>    
+    <position height="-1" width="-1" x="2416" y="685"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -304,7 +304,7 @@
   <interface id="34" language="java" name="dev.hust.funnyfarm.entities.creatures.animals.Walkable" project="FunnyFarm" 
     file="/FunnyFarm/src/dev/hust/funnyfarm/entities/creatures/animals/Walkable.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="79" width="200" x="2100" y="801"/>    
+    <position height="-1" width="-1" x="2425" y="881"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -312,289 +312,293 @@
     </display>  
   </interface>  
   <generalization id="35">    
-    <end type="SOURCE" refId="25"/>    
+    <end type="SOURCE" refId="31"/>    
     <end type="TARGET" refId="24"/>  
   </generalization>  
-  <generalization id="36">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
+  <realization id="36">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
   <generalization id="37">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <generalization id="38">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="17"/>  
-  </generalization>  
-  <generalization id="39">    
-    <end type="SOURCE" refId="31"/>    
-    <end type="TARGET" refId="24"/>  
-  </generalization>  
-  <association id="40">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="41" name="waterTile">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="42" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="43">    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="34"/>  
-  </realization>  
-  <generalization id="44">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="17"/>  
-  </generalization>  
-  <realization id="45">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="32"/>  
-  </realization>  
-  <association id="46">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="47" name="objects">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="48" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="49">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="32"/>  
-  </realization>  
-  <association id="50">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="51" name="tiles">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="52" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="53">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="34"/>  
-  </realization>  
-  <generalization id="54">    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="24"/>  
-  </generalization>  
-  <association id="55">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="56" name="fenceTile">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="57" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="58">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <generalization id="59">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <generalization id="60">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <association id="61">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="62" name="grassTile">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="63" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="64">    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="32"/>  
-  </realization>  
-  <association id="65">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="66" name="flowerPotTile">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="67" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="68">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="34"/>  
-  </realization>  
-  <generalization id="69">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="24"/>  
-  </generalization>  
-  <generalization id="70">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="24"/>  
-  </generalization>  
-  <generalization id="71">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="24"/>  
-  </generalization>  
-  <association id="72">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="73" name="foodType"/>      
-      <multiplicity id="74" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="75">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="76" name="entities">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="77" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="78">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="79">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <realization id="80">    
-    <end type="SOURCE" refId="31"/>    
-    <end type="TARGET" refId="33"/>  
-  </realization>  
-  <generalization id="81">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <generalization id="82">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <generalization id="83">    
-    <end type="SOURCE" refId="24"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <realization id="84">    
-    <end type="SOURCE" refId="31"/>    
-    <end type="TARGET" refId="34"/>  
-  </realization>  
-  <generalization id="85">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="6"/>  
   </generalization>  
-  <generalization id="86">    
+  <generalization id="38">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <realization id="40">    
     <end type="SOURCE" refId="29"/>    
-    <end type="TARGET" refId="24"/>  
-  </generalization>  
-  <generalization id="87">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="16"/>  
-  </generalization>  
-  <realization id="88">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="33"/>  
+    <end type="TARGET" refId="34"/>  
   </realization>  
-  <realization id="89">    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="32"/>  
-  </realization>  
-  <association id="90">    
+  <association id="41">    
     <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="91" name="dirtTile">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <attribute id="42" name="tiles">        
+        <position height="0" width="0" x="132" y="-346"/>      
       </attribute>      
-      <multiplicity id="92" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="43" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="132" y="-346"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="93">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <association id="94">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="95" name="selectedBtn">        
-        <position height="0" width="0" x="0" y="0"/>      
+  <association id="44">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="45" name="grassTile">        
+        <position height="0" width="0" x="132" y="-346"/>      
       </attribute>      
-      <multiplicity id="96" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="46" minimum="0" maximum="1">        
+        <position height="0" width="0" x="132" y="-346"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="97">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="98" name="clicker">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="99" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="100">    
+  <association id="47">    
     <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="101" name="entityManager">        
+      <attribute id="48" name="entityManager">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="102" minimum="0" maximum="1">        
+      <multiplicity id="49" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="103">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="18"/>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="16"/>  
   </generalization>  
-  <realization id="104">    
+  <generalization id="51">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="23"/>  
+  </generalization>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <realization id="53">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <realization id="54">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <realization id="55">    
     <end type="SOURCE" refId="27"/>    
     <end type="TARGET" refId="34"/>  
   </realization>  
-  <realization id="105">    
+  <generalization id="56">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="57">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="58">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="59">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <realization id="60">    
     <end type="SOURCE" refId="29"/>    
     <end type="TARGET" refId="32"/>  
   </realization>  
-  <realization id="106">    
-    <end type="SOURCE" refId="29"/>    
+  <association id="61">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="62" name="clicker">        
+        <position height="0" width="0" x="-843" y="-311"/>      
+      </attribute>      
+      <multiplicity id="63" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-843" y="-311"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="64">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="65" name="selectedBtn">        
+        <position height="0" width="0" x="-592" y="-52"/>      
+      </attribute>      
+      <multiplicity id="66" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-592" y="-52"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="68" name="flowerPotTile">        
+        <position height="0" width="0" x="132" y="-346"/>      
+      </attribute>      
+      <multiplicity id="69" minimum="0" maximum="1">        
+        <position height="0" width="0" x="132" y="-346"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="70">    
+    <end type="SOURCE" refId="30"/>    
     <end type="TARGET" refId="34"/>  
   </realization>  
+  <realization id="71">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <generalization id="72">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="73">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <realization id="74">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <association id="75">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="76" name="objects">        
+        <position height="0" width="0" x="-625" y="7"/>      
+      </attribute>      
+      <multiplicity id="77" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-625" y="7"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="78">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="79">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="80">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="81" name="waterTile">        
+        <position height="0" width="0" x="132" y="-346"/>      
+      </attribute>      
+      <multiplicity id="82" minimum="0" maximum="1">        
+        <position height="0" width="0" x="132" y="-346"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="83">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="84">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="85" name="entities">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="86" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="87">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="88">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="89" name="foodType">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="90" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="91">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="23"/>  
+  </generalization>  
+  <generalization id="92">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="93">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <realization id="94">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="33"/>  
+  </realization>  
+  <association id="95">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="96" name="dirtTile">        
+        <position height="0" width="0" x="132" y="-346"/>      
+      </attribute>      
+      <multiplicity id="97" minimum="0" maximum="1">        
+        <position height="0" width="0" x="132" y="-346"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="98">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="99">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="100" name="fenceTile">        
+        <position height="0" width="0" x="132" y="-346"/>      
+      </attribute>      
+      <multiplicity id="101" minimum="0" maximum="1">        
+        <position height="0" width="0" x="132" y="-346"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="102">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <realization id="103">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="33"/>  
+  </realization>  
+  <generalization id="104">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <realization id="105">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <generalization id="106">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

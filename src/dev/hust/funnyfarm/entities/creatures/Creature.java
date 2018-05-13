@@ -222,6 +222,7 @@ public abstract class Creature extends Entity {
 	
 	@Override
 	public void die() {
+		setHealth(0);
 		isLiving = false;
 		setTimeToDisapear(DEFAULT_TIME_TO_DISAPEAR_AFTER_DEAD);
 		Assets.sound_die.play();
