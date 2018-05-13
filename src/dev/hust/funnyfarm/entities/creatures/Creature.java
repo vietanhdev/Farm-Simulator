@@ -101,12 +101,16 @@ public abstract class Creature extends Entity {
 		}
 		
 		// Die right after living in wrong environment
-		int tileX = (int) (getX() + getBounds().x) / Tile.TILEWIDTH;
-		int tileY = (int) (getY() + getBounds().y) / Tile.TILEHEIGHT;
-		if (!isRightEnvironment(getHandler().getWorld().getTile(tileX, tileY).getName())) {
+		if (!isRightEnvironment(getCurrentEnvironment())) {
 			System.out.println("Wrong environment");
 			die();
 		}
+		
+		// If the creature in water environment, it can drink the water here
+		if (getCurrentEnvironment().equals("water")) {
+			drink(5);
+		}
+		
 		
 		increaseAge();
 		
@@ -157,6 +161,12 @@ public abstract class Creature extends Entity {
 	
 	public void drink(double amount) {
 		this.water += amount;
+	}
+	
+	public String getCurrentEnvironment() {
+		int tileX = (int) (getX() + getBounds().x) / Tile.TILEWIDTH;
+		int tileY = (int) (getY() + getBounds().y) / Tile.TILEHEIGHT;
+		return getHandler().getWorld().getTile(tileX, tileY).getName();
 	}
 	
 	public double getFood() {

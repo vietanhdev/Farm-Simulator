@@ -42,8 +42,6 @@ public class Turtle extends Animal implements Swimmable {
 		super.setAnimations(animDown, animUp, animLeft, animRight, animSleep, animDead);
 		this.setSwimAnimations(animSwimDown, animSwimUp, animSwimLeft, animSwimRight);
 		
-		setCurrentEnvironment("dirt");
-		
 		setFoodType(new FoodType("turtlefood"));
 	}
 	

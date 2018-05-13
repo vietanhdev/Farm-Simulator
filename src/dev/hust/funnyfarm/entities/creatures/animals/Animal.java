@@ -16,8 +16,6 @@ public abstract class Animal extends Creature implements Walkable {
 	private float speed;
 	private float xMove, yMove;
 	
-	private String currentEnvironment;
-	
 	// Sleeping animal
 	private boolean isSleeping = false; 
 	private long lastSleepTime;
@@ -76,13 +74,7 @@ public abstract class Animal extends Creature implements Walkable {
 		return animDead;
 	}
 	
-	public String getCurrentEnvironment() {
-		return currentEnvironment;
-	}
-	
-	public void setCurrentEnvironment(String env) {
-		currentEnvironment = env;
-	}
+
 	
 	public void setAnimations(Animation animDown, Animation animUp, Animation animLeft, Animation animRight, Animation animSleep, Animation animDead) {
 		this.animDown = animDown;
@@ -210,9 +202,6 @@ public abstract class Animal extends Creature implements Walkable {
 	protected boolean collisionWithTile(int x, int y){
 		String env = getHandler().getWorld().getTile(x, y).getName();
 		boolean rightEnv  = isRightEnvironment(env);
-		
-		if (rightEnv)
-			setCurrentEnvironment(env);
 			
 		return !rightEnv;
 	}

@@ -48,7 +48,6 @@ public class Fish extends Animal {
 		
 		//Animations
 		swim();
-		drink(5);
 		
 	}
 	
