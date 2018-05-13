@@ -217,7 +217,7 @@ public class UIManager {
 		this.addObject(btnPigFood);
 		
 		
-		FoodSelectButton btnFlowerFood = new FoodSelectButton("Flowerfood", 9*64, 0, 64, 64, Assets.flower_big[0]);
+		FoodSelectButton btnFlowerFood = new FoodSelectButton("flowerfood", 9*64, 0, 64, 64, Assets.flower_big[0]);
 		btnFlowerFood.setClicker(new ClickListener() {
 			@Override
 			public void onClick() {

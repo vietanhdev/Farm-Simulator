@@ -1,5 +1,6 @@
 package dev.hust.funnyfarm.entities.creatures.plants;
 
+import dev.hust.funnyfarm.FoodType;
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.gfx.Animation;
 import dev.hust.funnyfarm.gfx.Assets;
@@ -15,6 +16,8 @@ public  class Flower extends Plant {
 		Animation animDead = new Animation(500, Assets.flower_dead);
 		
 		super.setAnimations(animSmall, animBig, animDead);
+		
+		setFoodType(new FoodType("flowerfood"));
 	}
 	
 	@Override
