@@ -6,6 +6,7 @@ import dev.hust.funnyfarm.FoodType;
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.Entity;
 import dev.hust.funnyfarm.gfx.Text;
+import dev.hust.funnyfarm.tiles.Tile;
 
 
 public abstract class Creature extends Entity {
@@ -20,6 +21,8 @@ public abstract class Creature extends Entity {
 	
 	private long age;
 	
+	private long timeToDisapear;
+	public static final long DEFAULT_TIME_TO_DISAPEAR_AFTER_DEAD = 1000;
 	public static final double DEFAULT_HEALTH = 100.0;
 	public static final double DEFAULT_FOOD = 100.0;
 	public static final double DEFAULT_WATER = 100.0;
@@ -36,11 +39,11 @@ public abstract class Creature extends Entity {
 		food = DEFAULT_FOOD;
 		water = DEFAULT_WATER;
 		foodType = new FoodType("");
+		setTimeToDisapear(0);
 	}
 	
 	
 	//GETTERS SETTERS
-	
 	public double getHealthLostPerTick () {
 		return healthLostPerTick;
 	}
@@ -79,6 +82,27 @@ public abstract class Creature extends Entity {
 	}
 	
 	public void updateBodyStatus() {
+		
+		
+		
+		if (!isLiving) {
+			if (getTimeToDisapear() <= 0) {
+				setActive(false);
+			}
+			setTimeToDisapear(getTimeToDisapear()-1);
+			
+			// Not update body status after dead
+			return;
+		}
+		
+		// Die right after living in wrong environment
+		int tileX = (int) (getX() + getBounds().x + getBounds().width) / Tile.TILEWIDTH;
+		int tileY = (int) (getY() + getBounds().y + getBounds().height) / Tile.TILEHEIGHT;
+		if (!isRightEnvironment(getHandler().getWorld().getTile(tileX, tileY).getName())) {
+			System.out.println("Wrong environment");
+			die();
+		}
+		
 		increaseAge();
 		
 		this.health -= getHealthLostPerTick();
@@ -148,19 +172,24 @@ public abstract class Creature extends Entity {
 	}
 
 	public void printInfo(Graphics g) {
-		
 		Text.drawString(g, "Health: " + (int)getHealth()
-			+ "\n Food: " + (int)getFood()
-			+ " Water: " + (int)getWater()
+		, (int) (getX() - getHandler().getGameCamera().getxOffset())	
+		, (int) (getY() - getHandler().getGameCamera().getyOffset() - 16)
+		, 0);
+		Text.drawString(g, "Food: " + (int)getFood()
 		, (int) (getX() - getHandler().getGameCamera().getxOffset())	
 		, (int) (getY() - getHandler().getGameCamera().getyOffset())
+		, 0);
+		Text.drawString(g, "Water: " + (int)getWater()
+		, (int) (getX() - getHandler().getGameCamera().getxOffset())	
+		, (int) (getY() - getHandler().getGameCamera().getyOffset() + 16)
 		, 0);
 	}
 	
 	@Override
 	public void die() {
 		isLiving = false;
-		setActive(false);
+		setTimeToDisapear(DEFAULT_TIME_TO_DISAPEAR_AFTER_DEAD);
 	}
 	
 
@@ -190,6 +219,16 @@ public abstract class Creature extends Entity {
 
 	public void setFoodType(FoodType foodType) {
 		this.foodType = foodType;
+	}
+
+
+	public long getTimeToDisapear() {
+		return timeToDisapear;
+	}
+
+
+	public void setTimeToDisapear(long timeToDisapear) {
+		this.timeToDisapear = timeToDisapear;
 	}
 	
 }

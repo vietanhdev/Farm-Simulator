@@ -132,6 +132,9 @@ public class World {
 	}
 	
 	public Tile getTile(int x, int y){
+		System.out.println("X=" + x + "Y="+ y);
+		System.out.println("width=" + width + "height="+ height);
+		
 		if(x < 0 || y < 0 || x >= width || y >= height)
 			return Tile.grassTile;
 		

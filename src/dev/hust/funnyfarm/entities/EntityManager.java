@@ -40,21 +40,17 @@ public class EntityManager {
 		
 		boolean isClicked = getHandler().getMouseManager().isMouseClicked();
 		
-		// x, y of click calculated by window
-		int xClicked_win = 0, yClicked_win = 0;
+
 		// x, y of click with game camera offset
 		int xClicked = 0, yClicked = 0;
 		
 		if (isClicked) {
 			
-			xClicked_win = getHandler().getMouseManager().getMouseClickedX();
-			yClicked_win = getHandler().getMouseManager().getMouseClickedY();
+			xClicked = getHandler().getMouseManager().getMouseClickedX() + (int)getHandler().getGameCamera().getxOffset();
+			yClicked = getHandler().getMouseManager().getMouseClickedY() + (int)getHandler().getGameCamera().getyOffset();
 			
-			xClicked = xClicked_win + (int)getHandler().getGameCamera().getxOffset();
-			yClicked = yClicked_win + (int)getHandler().getGameCamera().getyOffset();
-			
-			// Skip if click area in toolbar
-			if (yClicked_win < 64) {
+			// Skip if click area in tool bar
+			if (getHandler().getMouseManager().getMouseClickedY() < 64) {
 				isClicked = false;
 			}
 		}
@@ -71,12 +67,11 @@ public class EntityManager {
 				name = selectedBtn.getName();
 				
 				if (name.contains("Add")) {
-					int xPos = xClicked_win;
-					int yPos = yClicked_win;
+					int xPos = xClicked;
+					int yPos = yClicked;
 					
 					
-					
-					Entity newEntity = null;
+					Creature newEntity = null;
 					switch (name) {
 					case "Add Fish": newEntity = new Fish(handler, xPos, yPos);  this.addEntity(newEntity); break;
 					case "Add Turtle": newEntity = new Turtle(handler, xPos, yPos);  this.addEntity(newEntity); break;
