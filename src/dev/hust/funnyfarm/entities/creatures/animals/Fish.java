@@ -38,6 +38,10 @@ public class Fish extends Animal {
 	
 	@Override
 	public void tick() {
+		
+		// This method should be at first in tick(): updateBodyStatus();
+		updateBodyStatus();
+		
 		if (!isLiving()) return;
 		
 		sleep();
@@ -45,7 +49,6 @@ public class Fish extends Animal {
 		//Animations
 		swim();
 		drink(5);
-		updateBodyStatus();
 		
 	}
 	

@@ -75,6 +75,9 @@ public class Turtle extends Animal implements Swimmable {
 	@Override
 	public void tick() {
 		
+		// This method should be at first in tick(): updateBodyStatus();
+		updateBodyStatus();
+		
 		if (!isLiving()) return;
 		
 		sleep();
@@ -84,8 +87,6 @@ public class Turtle extends Animal implements Swimmable {
 		} else {
 			walk();
 		}
-		
-		updateBodyStatus();
 		
 	}
 	

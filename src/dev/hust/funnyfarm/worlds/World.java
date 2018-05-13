@@ -27,13 +27,13 @@ public class World {
 		this.handler = handler;
 		entityManager = new EntityManager(handler);
 		
-		Fish f = new Fish(handler, 90, 90);
+		Fish f = new Fish(handler, 4*64, 4*64);
 		f.setLastSleepTime(1374);
 		entityManager.addEntity(f);
-		f = new Fish(handler, 164, 164);
+		f = new Fish(handler, 5*64, 5*64);
 		f.setLastSleepTime(456);
 		entityManager.addEntity(f);
-		entityManager.addEntity(new Fish(handler, 240, 240));
+		entityManager.addEntity(new Fish(handler, 2*64, 6*64));
 		
 		Turtle t = new Turtle(handler, 400, 200);
 		t.setLastSleepTime(1000);
@@ -42,11 +42,11 @@ public class World {
 		
 		entityManager.addEntity(new Pig(handler, 10*64, 2*64));
 		
-		Horse h1 = new Horse(handler, 14*64, 64);
+		Horse h1 = new Horse(handler, 14*64, 6*64);
 		h1.setLastSleepTime(1145);
 		entityManager.addEntity(h1);
 		entityManager.addEntity(new Horse(handler, 16*64, 2*64));
-		h1 = new Horse(handler, 16*64, 200);
+		h1 = new Horse(handler, 16*64, 3*64);
 		h1.setLastSleepTime(245);
 		entityManager.addEntity(h1);
 		
@@ -132,9 +132,6 @@ public class World {
 	}
 	
 	public Tile getTile(int x, int y){
-		System.out.println("X=" + x + "Y="+ y);
-		System.out.println("width=" + width + "height="+ height);
-		
 		if(x < 0 || y < 0 || x >= width || y >= height)
 			return Tile.grassTile;
 		

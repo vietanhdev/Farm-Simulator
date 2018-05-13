@@ -96,11 +96,13 @@ public abstract class Animal extends Creature implements Walkable {
 	@Override
 	public void tick() {
 		
+		// This method should be at first in tick(): updateBodyStatus();
+		updateBodyStatus();
 		if (!isLiving()) return;
 		
 		sleep();
 		walk();
-		updateBodyStatus();
+		
 		
 	}
 	
@@ -182,7 +184,7 @@ public abstract class Animal extends Creature implements Walkable {
 	}
 	
 	public void moveY(){
-		if(yMove < 0){//Up
+		if (yMove < 0) { //Up
 			int ty = (int) (getY() + yMove + getBounds().y) / Tile.TILEHEIGHT;
 			
 			if(!collisionWithTile((int) (getX() + getBounds().x) / Tile.TILEWIDTH, ty) &&
@@ -192,7 +194,7 @@ public abstract class Animal extends Creature implements Walkable {
 				setY(ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - getBounds().y);
 			}
 			
-		}else if(yMove > 0){//Down
+		} else if (yMove > 0){ //Down
 			int ty = (int) (getY() + yMove + getBounds().y + getBounds().height) / Tile.TILEHEIGHT;
 			
 			if(!collisionWithTile((int) (getX() + getBounds().x) / Tile.TILEWIDTH, ty) &&

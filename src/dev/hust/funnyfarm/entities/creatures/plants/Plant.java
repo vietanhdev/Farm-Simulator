@@ -21,6 +21,7 @@ public abstract class Plant extends Creature {
 
 	@Override
 	public void tick() {
+		// This method should be at first in tick(): updateBodyStatus();
 		updateBodyStatus();
 	}
 

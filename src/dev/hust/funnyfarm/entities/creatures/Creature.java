@@ -11,7 +11,7 @@ import dev.hust.funnyfarm.tiles.Tile;
 
 public abstract class Creature extends Entity {
 	
-	private boolean isLiving = true;
+	private boolean isLiving;
 	
 	private FoodType foodType;
 	
@@ -22,7 +22,7 @@ public abstract class Creature extends Entity {
 	private long age;
 	
 	private long timeToDisapear;
-	public static final long DEFAULT_TIME_TO_DISAPEAR_AFTER_DEAD = 1000;
+	public static final long DEFAULT_TIME_TO_DISAPEAR_AFTER_DEAD = 500;
 	public static final double DEFAULT_HEALTH = 100.0;
 	public static final double DEFAULT_FOOD = 100.0;
 	public static final double DEFAULT_WATER = 100.0;
@@ -40,6 +40,7 @@ public abstract class Creature extends Entity {
 		water = DEFAULT_WATER;
 		foodType = new FoodType("");
 		setTimeToDisapear(0);
+		setLiving(true);
 	}
 	
 	
@@ -68,6 +69,10 @@ public abstract class Creature extends Entity {
 		return isLiving;
 	}
 	
+	public void setLiving(boolean isLiving) {
+		this.isLiving = isLiving;
+	}
+	
 	
 	public boolean isRightEnvironment(String environment) {
 		return getEnvironments().toLowerCase().contains(environment.toLowerCase());
@@ -81,23 +86,23 @@ public abstract class Creature extends Entity {
 		this.health = health;
 	}
 	
+	
+	// This method should be at first in tick(): updateBodyStatus();
 	public void updateBodyStatus() {
-		
-		
 		
 		if (!isLiving) {
 			if (getTimeToDisapear() <= 0) {
 				setActive(false);
 			}
-			setTimeToDisapear(getTimeToDisapear()-1);
 			
+			setTimeToDisapear(getTimeToDisapear()-1);
 			// Not update body status after dead
 			return;
 		}
 		
 		// Die right after living in wrong environment
-		int tileX = (int) (getX() + getBounds().x + getBounds().width) / Tile.TILEWIDTH;
-		int tileY = (int) (getY() + getBounds().y + getBounds().height) / Tile.TILEHEIGHT;
+		int tileX = (int) (getX() + getBounds().x) / Tile.TILEWIDTH;
+		int tileY = (int) (getY() + getBounds().y) / Tile.TILEHEIGHT;
 		if (!isRightEnvironment(getHandler().getWorld().getTile(tileX, tileY).getName())) {
 			System.out.println("Wrong environment");
 			die();
@@ -188,6 +193,7 @@ public abstract class Creature extends Entity {
 	
 	@Override
 	public void die() {
+		System.out.println("Dead");
 		isLiving = false;
 		setTimeToDisapear(DEFAULT_TIME_TO_DISAPEAR_AFTER_DEAD);
 	}
