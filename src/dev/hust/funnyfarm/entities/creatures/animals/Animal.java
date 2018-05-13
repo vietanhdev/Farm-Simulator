@@ -9,7 +9,7 @@ import dev.hust.funnyfarm.entities.creatures.Creature;
 import dev.hust.funnyfarm.gfx.Animation;
 import dev.hust.funnyfarm.tiles.Tile;
 
-public abstract class Animal extends Creature implements Walkable {
+public abstract class Animal extends Creature{
 	
 	public static float DEFAULT_SPEED = 1.0f;
 	

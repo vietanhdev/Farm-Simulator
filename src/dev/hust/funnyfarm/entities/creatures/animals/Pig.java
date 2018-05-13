@@ -6,7 +6,7 @@ import dev.hust.funnyfarm.gfx.Animation;
 import dev.hust.funnyfarm.gfx.Assets;
 
 
-public class Pig extends Animal {
+public class Pig extends Animal implements Walkable, Soundable  {
 	
 	public Pig(Handler handler, float x, float y) {
 		super(handler, x, y, DEFAULT_CREATURE_WIDTH, DEFAULT_CREATURE_HEIGHT);
@@ -48,5 +48,10 @@ public class Pig extends Animal {
 		return 2000;
 	}
 	
+	
+	@Override
+	public void sound() {
+		Assets.sound_pig.play();
+	}
 
 }

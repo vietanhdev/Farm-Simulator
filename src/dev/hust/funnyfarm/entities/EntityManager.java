@@ -72,8 +72,6 @@ public class EntityManager {
 					int xPos = xClicked;
 					int yPos = yClicked;
 					
-					System.out.println(xPos + "  " + yPos);
-					
 					Creature newEntity = null;
 					switch (name) {
 					case "Add Fish": newEntity = new Fish(handler, xPos, yPos);  this.addEntity(newEntity); break;
@@ -87,6 +85,12 @@ public class EntityManager {
 					// We have to round the position to grow flower
 					// to have flower in the right position of flower pot
 					case "Add Flower": newEntity = new Flower(handler, ((int)(xPos / 64)) * 64, ((int)(yPos / 64)) * 64);  this.addEntity(newEntity); break;
+					}
+					
+					
+					// Sound after appear
+					if (newEntity instanceof Soundable) {
+						((Soundable) newEntity).sound();
 					}
 					
 					if (newEntity != null && newEntity.checkEntityCollisions(0f, 0f)) {
@@ -126,15 +130,27 @@ public class EntityManager {
 					if (bound.contains(xClicked, yClicked)) {
 						Creature c = (Creature) e;
 						
+						if (c instanceof Soundable) {
+							((Soundable) c).sound();
+						}
+						
 						if (selectedBtn != null) {
 							
 							// Eat
-							if (name.contains("food"))
-								c.eat(new FoodType(name));
+							if (name.contains("food")) {
+								if (c.eat(new FoodType(name))) {
+									c.sayThankYou();
+								} else {
+									c.sayItsNotMyFood();
+								}
+							}
 							
 							// Drink
-							if (name.contains("water"))
+							if (name.contains("water")) {
 								c.drink();
+								c.sayThankYou();
+							}
+								
 						}
 						
 						

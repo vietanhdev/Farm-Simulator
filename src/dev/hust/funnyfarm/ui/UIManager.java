@@ -199,6 +199,7 @@ public class UIManager {
 			@Override
 			public void onClick() {
 				setSelectedBtn(btnCowFood);
+				Assets.sound_cow.play();
 			}
 		});
 		this.addObject(btnCowFood);
@@ -208,6 +209,7 @@ public class UIManager {
 			@Override
 			public void onClick() {
 				setSelectedBtn(btnDogFood);
+				Assets.sound_dog.play();
 			}
 		});
 		this.addObject(btnDogFood);
@@ -217,6 +219,7 @@ public class UIManager {
 			@Override
 			public void onClick() {
 				setSelectedBtn(btnChickenFood);
+				Assets.sound_chicken.play();
 			}
 		});
 		this.addObject(btnChickenFood);
@@ -226,6 +229,7 @@ public class UIManager {
 			@Override
 			public void onClick() {
 				setSelectedBtn(btnHorseFood);
+				Assets.sound_horse.play();
 			}
 		});
 		this.addObject(btnHorseFood);
@@ -235,6 +239,7 @@ public class UIManager {
 			@Override
 			public void onClick() {
 				setSelectedBtn(btnPigFood);
+				Assets.sound_pig.play();
 			}
 		});
 		this.addObject(btnPigFood);
@@ -274,6 +279,7 @@ public class UIManager {
 			@Override
 			public void onClick() {
 				setSelectedBtn(btnAddCow);
+				Assets.sound_cow.play();
 			}
 		});
 		this.addObject(btnAddCow);
@@ -283,6 +289,7 @@ public class UIManager {
 			@Override
 			public void onClick() {
 				setSelectedBtn(btnAddDog);
+				Assets.sound_dog.play();
 			}
 		});
 		this.addObject(btnAddDog);
@@ -292,6 +299,7 @@ public class UIManager {
 			@Override
 			public void onClick() {
 				setSelectedBtn(btnAddChicken);
+				Assets.sound_chicken.play();
 			}
 		});
 		this.addObject(btnAddChicken);
@@ -302,6 +310,7 @@ public class UIManager {
 			@Override
 			public void onClick() {
 				setSelectedBtn(btnAddHorse);
+				Assets.sound_horse.play();
 			}
 		});
 		this.addObject(btnAddHorse);
@@ -311,6 +320,7 @@ public class UIManager {
 			@Override
 			public void onClick() {
 				setSelectedBtn(btnAddPig);
+				Assets.sound_pig.play();
 			}
 		});
 		this.addObject(btnAddPig);

@@ -6,7 +6,7 @@ import dev.hust.funnyfarm.gfx.Animation;
 import dev.hust.funnyfarm.gfx.Assets;
 
 
-public class Dog extends Animal {
+public class Dog extends Animal implements Walkable, Soundable  {
 	
 	public Dog(Handler handler, float x, float y) {
 		super(handler, x, y, DEFAULT_CREATURE_WIDTH, DEFAULT_CREATURE_HEIGHT);
@@ -46,6 +46,11 @@ public class Dog extends Animal {
 	@Override
 	public long getTimeBetweenSleeps() {
 		return 2000;
+	}
+	
+	@Override
+	public void sound() {
+		Assets.sound_dog.play();
 	}
 	
 

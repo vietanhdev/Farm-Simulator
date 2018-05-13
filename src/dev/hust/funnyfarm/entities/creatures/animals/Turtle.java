@@ -10,7 +10,7 @@ import dev.hust.funnyfarm.gfx.Animation;
 import dev.hust.funnyfarm.gfx.Assets;
 
 
-public class Turtle extends Animal implements Swimmable {
+public class Turtle extends Animal implements Swimmable, Walkable {
 	
 	
 	//Animations

@@ -219,6 +219,7 @@ public abstract class Creature extends Entity {
 	public void die() {
 		isLiving = false;
 		setTimeToDisapear(DEFAULT_TIME_TO_DISAPEAR_AFTER_DEAD);
+		Assets.sound_die.play();
 	}
 	
 
@@ -266,6 +267,14 @@ public abstract class Creature extends Entity {
 	
 	public int getWaterNeed() {
 		return (int)(DEFAULT_WATER - getWater());
+	}
+	
+	public void sayThankYou() {
+		Assets.sound_thankyou.play();
+	}
+	
+	public void sayItsNotMyFood() {
+		Assets.sound_itsnotmyfood.play();
 	}
 	
 }

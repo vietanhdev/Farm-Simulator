@@ -1,13 +1,11 @@
 package dev.hust.funnyfarm.gfx;
 
-import java.awt.Font;
 import java.awt.image.BufferedImage;
+
 
 public class Assets {
 	
 	private static final int width = 32, height = 32;
-	
-	public static Font font28;
 	
 	public static BufferedImage heart, hamburger, water_drop;
 	public static BufferedImage dirt, grass, fence, tree, rock, water, flowerpot;
@@ -32,13 +30,56 @@ public class Assets {
 	public static BufferedImage[] btn_reset;
 	public static BufferedImage[] btn_hamburger;
 	public static BufferedImage[] btn_water_drop;
+	
+	
+	
+	// Sounds
+	public static Sound sound_bg;
+	public static Sound sound_thankyou;
+	public static Sound sound_die;
+	public static Sound sound_cow;
+	public static Sound sound_chicken;
+	public static Sound sound_pig;
+	public static Sound sound_dog;
+	public static Sound sound_horse;
+	public static Sound sound_itsnotmyfood;
 
 	public static void init(){
-		font28 = FontLoader.loadFont("/fonts/slkscr.ttf", 28);
 		
+		// ========== LOAD SOUNDS ==============
+		sound_bg = new Sound("/sounds/HungarianSonata.wav", 1000);
+		sound_bg.setVolume(0.1);
+		sound_bg.play();
+		
+		sound_thankyou = new Sound("/sounds/thankyou.wav");
+		sound_thankyou.play();
+		
+		sound_itsnotmyfood = new Sound("/sounds/itsnotmyfood.wav");
+		sound_itsnotmyfood.play();
+		
+		sound_die = new Sound("/sounds/die.wav");
+		sound_die.play();
+		
+		sound_cow = new Sound("/sounds/cow.wav");
+		sound_cow.play();
+		
+		sound_chicken = new Sound("/sounds/chicken.wav");
+		sound_chicken.play();
+		
+		sound_pig = new Sound("/sounds/pig.wav");
+		sound_pig.play();
+		
+		sound_dog = new Sound("/sounds/dog.wav");
+		sound_dog.play();
+		
+		sound_horse = new Sound("/sounds/horse.wav");
+		sound_horse.play();
+		
+		
+		
+		// ========== LOAD IMAGES ==============
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
 		SpriteSheet buttonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/buttons.png"));
-		
 		
 		btn_water = new BufferedImage[3];
 		btn_water[0] = buttonSheet.crop(0, 0, 64, 64);
