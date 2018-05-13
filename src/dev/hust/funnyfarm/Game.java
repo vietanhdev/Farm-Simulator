@@ -139,13 +139,6 @@ public class Game implements Runnable {
 				setSimTime(0);
 			}
 			
-			// Handle clicks
-//			if(getHandler().getMouseManager().isMouseClicked()) {
-//				int clickedX = getHandler().getMouseManager().getMouseClickedX();
-//				int clickedY = getHandler().getMouseManager().getMouseClickedY();
-//				
-//				System.out.println(clickedX + "   " + clickedY);
-//			}
 			
 		}
 		

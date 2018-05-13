@@ -72,6 +72,7 @@ public class EntityManager {
 					int xPos = xClicked;
 					int yPos = yClicked;
 					
+					System.out.println(xPos + "  " + yPos);
 					
 					Creature newEntity = null;
 					switch (name) {
@@ -82,7 +83,10 @@ public class EntityManager {
 					case "Add Pig": newEntity = new Pig(handler, xPos, yPos);  this.addEntity(newEntity); break;
 					case "Add Dog": newEntity = new Dog(handler, xPos, yPos);  this.addEntity(newEntity); break;
 					case "Add Chicken": newEntity = new Chicken(handler, xPos, yPos);  this.addEntity(newEntity); break;
-					case "Add Flower": newEntity = new Flower(handler, xPos, yPos);  this.addEntity(newEntity); break;
+					
+					// We have to round the position to grow flower
+					// to have flower in the right position of flower pot
+					case "Add Flower": newEntity = new Flower(handler, ((int)(xPos / 64)) * 64, ((int)(yPos / 64)) * 64);  this.addEntity(newEntity); break;
 					}
 					
 					if (newEntity != null && newEntity.checkEntityCollisions(0f, 0f)) {
@@ -121,8 +125,6 @@ public class EntityManager {
 					
 					if (bound.contains(xClicked, yClicked)) {
 						Creature c = (Creature) e;
-						System.out.println(name);
-						
 						
 						if (selectedBtn != null) {
 							
@@ -134,9 +136,6 @@ public class EntityManager {
 							if (name.contains("water"))
 								c.drink();
 						}
-						
-						System.out.println(xClicked + "  " + yClicked);
-						System.out.println(bound);
 						
 						
 					}

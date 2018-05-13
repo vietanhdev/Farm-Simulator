@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import dev.hust.funnyfarm.FoodType;
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.Entity;
+import dev.hust.funnyfarm.gfx.Assets;
 import dev.hust.funnyfarm.gfx.Text;
 import dev.hust.funnyfarm.tiles.Tile;
 
@@ -187,23 +188,34 @@ public abstract class Creature extends Entity {
 	}
 
 	public void printInfo(Graphics g) {
-		Text.drawString(g, "Health: " + (int)getHealth()
-		, (int) (getX() - getHandler().getGameCamera().getxOffset())	
+		g.drawImage(Assets.heart, 
+				(int) (getX() - getHandler().getGameCamera().getxOffset()),
+				(int) (getY() - getHandler().getGameCamera().getyOffset() - 32),
+				16, 16, null);
+		Text.drawString(g, "" + (int)getHealth()
+		, (int) (getX() - getHandler().getGameCamera().getxOffset() + 20)	
 		, (int) (getY() - getHandler().getGameCamera().getyOffset() - 16)
 		, 0);
-		Text.drawString(g, "Food: " + (int)getFood()
-		, (int) (getX() - getHandler().getGameCamera().getxOffset())	
+		g.drawImage(Assets.hamburger, 
+				(int) (getX() - getHandler().getGameCamera().getxOffset()),
+				(int) (getY() - getHandler().getGameCamera().getyOffset() - 16),
+				16, 16, null);
+		Text.drawString(g, "" + (int)getFood()
+		, (int) (getX() - getHandler().getGameCamera().getxOffset() + 20)	
 		, (int) (getY() - getHandler().getGameCamera().getyOffset())
 		, 0);
-		Text.drawString(g, "Water: " + (int)getWater()
-		, (int) (getX() - getHandler().getGameCamera().getxOffset())	
+		g.drawImage(Assets.water_drop, 
+				(int) (getX() - getHandler().getGameCamera().getxOffset()),
+				(int) (getY() - getHandler().getGameCamera().getyOffset()),
+				16, 16, null);
+		Text.drawString(g, "" + (int)getWater()
+		, (int) (getX() - getHandler().getGameCamera().getxOffset() + 20)	
 		, (int) (getY() - getHandler().getGameCamera().getyOffset() + 16)
 		, 0);
 	}
 	
 	@Override
 	public void die() {
-		System.out.println("Dead");
 		isLiving = false;
 		setTimeToDisapear(DEFAULT_TIME_TO_DISAPEAR_AFTER_DEAD);
 	}

@@ -231,7 +231,7 @@ public abstract class Animal extends Creature implements Walkable {
 	@Override
 	public void render(Graphics g) {
 		printInfo(g);
-		g.drawImage(getCurrentAnimationFrame(), (int) (getX() -  getHandler().getGameCamera().getxOffset()), (int) (getY() -  getHandler().getGameCamera().getyOffset()), getWidth(), getWidth(), null);
+		g.drawImage(getCurrentAnimationFrame(), (int) (getX() -  getHandler().getGameCamera().getxOffset()), (int) (getY() -  getHandler().getGameCamera().getyOffset()), getWidth(), getHeight(), null);
 	}
 	
 	private BufferedImage getCurrentAnimationFrame(){

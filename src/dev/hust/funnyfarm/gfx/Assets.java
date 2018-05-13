@@ -9,6 +9,7 @@ public class Assets {
 	
 	public static Font font28;
 	
+	public static BufferedImage heart, hamburger, water_drop;
 	public static BufferedImage dirt, grass, fence, tree, rock, water, flowerpot;
 	public static BufferedImage wood;
 	public static BufferedImage[] fish_down, fish_up, fish_left, fish_right, fish_sleep, fish_dead;
@@ -232,6 +233,10 @@ public class Assets {
 		rock = sheet.crop(0, height * 2, width, height);
 		water = sheet.crop(width, height, width, height);
 		flowerpot = sheet.crop(width*2, height, width, height);
+		
+		heart = sheet.crop(width, height * 2, width, height);
+		hamburger = sheet.crop(2*width, height * 2, width, height);
+		water_drop = sheet.crop(3*width, height * 2, width, height);
 	}
 	
 }
