@@ -4,8 +4,8 @@ import dev.hust.funnyfarm.gfx.Assets;
 
 public class DirtTile extends Tile {
 
-	public DirtTile(int id, String name) {
-		super(Assets.dirt, id, name);
+	DirtTile(int id, EnvironmentType type) {
+		super(Assets.dirt, id, type);
 	}
 
 }

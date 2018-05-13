@@ -7,9 +7,10 @@ import java.util.Random;
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.creatures.Creature;
 import dev.hust.funnyfarm.gfx.Animation;
+import dev.hust.funnyfarm.tiles.EnvironmentType;
 import dev.hust.funnyfarm.tiles.Tile;
 
-public abstract class Animal extends Creature{
+public abstract class Animal extends Creature {
 	
 	public static float DEFAULT_SPEED = 1.0f;
 	
@@ -200,7 +201,7 @@ public abstract class Animal extends Creature{
 	}
 	
 	protected boolean collisionWithTile(int x, int y){
-		String env = getHandler().getWorld().getTile(x, y).getName();
+		EnvironmentType env = getHandler().getWorld().getTile(x, y).getEnvironmentType();
 		boolean rightEnv  = isRightEnvironment(env);
 			
 		return !rightEnv;
@@ -281,6 +282,8 @@ public abstract class Animal extends Creature{
 	public void setSpeed(float speed) {
 		this.speed = speed;
 	}
+	
+	public abstract  EnvironmentType[] getEnvironments();
 	
 	
 }

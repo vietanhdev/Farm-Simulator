@@ -1,12 +1,19 @@
 package dev.hust.funnyfarm.entities.creatures.animals;
 
-import dev.hust.funnyfarm.FoodType;
 import dev.hust.funnyfarm.Handler;
+import dev.hust.funnyfarm.entities.creatures.FoodType;
 import dev.hust.funnyfarm.gfx.Animation;
 import dev.hust.funnyfarm.gfx.Assets;
+import dev.hust.funnyfarm.tiles.EnvironmentType;
 
 
 public class Fish extends Animal implements Swimmable {
+
+	private static EnvironmentType[] environments = {EnvironmentType.WATER_ENVIRONMENT};
+	public EnvironmentType[] getEnvironments() {
+		return environments;
+	}
+	
 	
 	public Fish(Handler handler, float x, float y) {
 		super(handler, x, y, DEFAULT_CREATURE_WIDTH, DEFAULT_CREATURE_HEIGHT);
@@ -31,11 +38,7 @@ public class Fish extends Animal implements Swimmable {
 		setFoodType(new FoodType("fishfood"));
 	}
 	
-	@Override
-	public String getEnvironments() {
-		return "water";
-	}
-	
+
 	@Override
 	public void tick() {
 		

@@ -4,8 +4,8 @@ import dev.hust.funnyfarm.gfx.Assets;
 
 public class WaterTile extends Tile {
 
-	public WaterTile(int id, String name) {
-		super(Assets.water, id, name);
+	WaterTile(int id, EnvironmentType type) {
+		super(Assets.water, id, type);
 	}
 
 }

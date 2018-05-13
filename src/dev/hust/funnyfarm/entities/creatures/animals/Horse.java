@@ -1,12 +1,20 @@
 package dev.hust.funnyfarm.entities.creatures.animals;
 
-import dev.hust.funnyfarm.FoodType;
 import dev.hust.funnyfarm.Handler;
+import dev.hust.funnyfarm.entities.creatures.FoodType;
 import dev.hust.funnyfarm.gfx.Animation;
 import dev.hust.funnyfarm.gfx.Assets;
+import dev.hust.funnyfarm.tiles.EnvironmentType;
 
 
 public class Horse extends Animal implements Walkable, Soundable  {
+	
+
+	private static EnvironmentType[] environments = {EnvironmentType.TERRESTIAL_ENVIRONMENT};
+	public EnvironmentType[] getEnvironments() {
+		return environments;
+	}
+	
 	
 	public Horse(Handler handler, float x, float y) {
 		super(handler, x, y, DEFAULT_CREATURE_WIDTH, DEFAULT_CREATURE_HEIGHT);
@@ -31,10 +39,6 @@ public class Horse extends Animal implements Walkable, Soundable  {
 		setFoodType(new FoodType("horsefood"));
 	}
 	
-	@Override
-	public String getEnvironments() {
-		return "dirt grass";
-	}
 
 
 	@Override

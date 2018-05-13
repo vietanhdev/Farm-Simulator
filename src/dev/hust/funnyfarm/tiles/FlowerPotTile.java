@@ -4,8 +4,9 @@ import dev.hust.funnyfarm.gfx.Assets;
 
 public class FlowerPotTile extends Tile {
 
-	public FlowerPotTile(int id, String name) {
-		super(Assets.flowerpot, id, name);
+
+	FlowerPotTile(int id, EnvironmentType type) {
+		super(Assets.flowerpot, id, type);
 	}
 
 }

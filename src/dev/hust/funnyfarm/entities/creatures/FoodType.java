@@ -1,4 +1,4 @@
-package dev.hust.funnyfarm;
+package dev.hust.funnyfarm.entities.creatures;
 
 public class FoodType {
 

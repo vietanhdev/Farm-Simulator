@@ -1,12 +1,13 @@
 package dev.hust.funnyfarm.entities.creatures;
 
 import java.awt.Graphics;
+import java.util.Arrays;
 
-import dev.hust.funnyfarm.FoodType;
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.Entity;
 import dev.hust.funnyfarm.gfx.Assets;
 import dev.hust.funnyfarm.gfx.Text;
+import dev.hust.funnyfarm.tiles.EnvironmentType;
 import dev.hust.funnyfarm.tiles.Tile;
 
 
@@ -19,7 +20,6 @@ public abstract class Creature extends Entity {
 	private double health;
 	private double food;
 	private double water;
-	
 	private long age;
 	
 	private long timeToDisapear;
@@ -75,8 +75,13 @@ public abstract class Creature extends Entity {
 	}
 	
 	
-	public boolean isRightEnvironment(String environment) {
-		return getEnvironments().toLowerCase().contains(environment.toLowerCase());
+	public boolean isRightEnvironment(EnvironmentType enviromment) {
+		if (getEnvironments() == null) {
+			System.out.println("Null environments!");
+			return false;
+		}
+		
+		return Arrays.asList(getEnvironments()).contains(enviromment);
 	}
 
 	public double getHealth() {
@@ -102,13 +107,13 @@ public abstract class Creature extends Entity {
 		}
 		
 		// Die right after living in wrong environment
-		if (!isRightEnvironment(getCurrentEnvironment())) {
+		if (!isRightEnvironment(getCurrentEnvironmentType())) {
 			System.out.println("Wrong environment");
 			die();
 		}
 		
 		// If the creature in water environment, it can drink the water here
-		if (getCurrentEnvironment().equals("water")) {
+		if (getCurrentEnvironmentType() == EnvironmentType.WATER_ENVIRONMENT) {
 			drink(5);
 		}
 		
@@ -164,10 +169,10 @@ public abstract class Creature extends Entity {
 		this.water += amount;
 	}
 	
-	public String getCurrentEnvironment() {
+	public EnvironmentType getCurrentEnvironmentType() {
 		int tileX = (int) (getX() + getBounds().x) / Tile.TILEWIDTH;
 		int tileY = (int) (getY() + getBounds().y) / Tile.TILEHEIGHT;
-		return getHandler().getWorld().getTile(tileX, tileY).getName();
+		return getHandler().getWorld().getTile(tileX, tileY).getEnvironmentType();
 	}
 	
 	public double getFood() {
@@ -237,11 +242,6 @@ public abstract class Creature extends Entity {
 	}
 
 
-	public String getEnvironments() {
-		return "";
-	}
-
-
 	public FoodType getFoodType() {
 		return foodType;
 	}
@@ -276,5 +276,9 @@ public abstract class Creature extends Entity {
 	public void sayItsNotMyFood() {
 		Assets.sound_itsnotmyfood.play();
 	}
+
+
+	public abstract  EnvironmentType[] getEnvironments();
+
 	
 }

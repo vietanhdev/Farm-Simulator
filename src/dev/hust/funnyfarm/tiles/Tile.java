@@ -5,13 +5,24 @@ import java.awt.image.BufferedImage;
 
 public class Tile {
 	
+	private EnvironmentType environmentType;
+	
+	public EnvironmentType getEnvironmentType() {
+		return environmentType;
+	}
+
+	public void setEnvironmentType(EnvironmentType environmentType) {
+		this.environmentType = environmentType;
+	}
+
+
 	//STATIC STUFF HERE
 	public static Tile[] tiles = new Tile[256];
-	public static Tile grassTile = new GrassTile(0, "grass");
-	public static Tile dirtTile = new DirtTile(1, "dirt");
-	public static Tile fenceTile = new FenceTile(2, "fence");
-	public static Tile waterTile = new WaterTile(3, "water");
-	public static Tile flowerPotTile = new FlowerPotTile(4, "flowerpot");
+	public static Tile grassTile = new GrassTile(0, EnvironmentType.TERRESTIAL_ENVIRONMENT);
+	public static Tile dirtTile = new DirtTile(1, EnvironmentType.TERRESTIAL_ENVIRONMENT);
+	public static Tile fenceTile = new FenceTile(2, EnvironmentType.FENCE);
+	public static Tile waterTile = new WaterTile(3, EnvironmentType.WATER_ENVIRONMENT);
+	public static Tile flowerPotTile = new FlowerPotTile(4, EnvironmentType.FLOWERPOT);
 	
 	//CLASS
 	
@@ -21,10 +32,10 @@ public class Tile {
 	protected final int id;
 	protected String name;
 	
-	public Tile(BufferedImage texture, int id, String name){
+	public Tile(BufferedImage texture, int id, EnvironmentType type){
 		this.texture = texture;
 		this.id = id;
-		this.name = name;
+		setEnvironmentType(type);
 		
 		tiles[id] = this;
 	}

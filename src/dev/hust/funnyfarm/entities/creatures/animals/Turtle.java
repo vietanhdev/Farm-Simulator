@@ -4,15 +4,20 @@ package dev.hust.funnyfarm.entities.creatures.animals;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import dev.hust.funnyfarm.FoodType;
 import dev.hust.funnyfarm.Handler;
+import dev.hust.funnyfarm.entities.creatures.FoodType;
 import dev.hust.funnyfarm.gfx.Animation;
 import dev.hust.funnyfarm.gfx.Assets;
+import dev.hust.funnyfarm.tiles.EnvironmentType;
 
 
 public class Turtle extends Animal implements Swimmable, Walkable {
 	
-	
+	private static EnvironmentType[] environments = {EnvironmentType.TERRESTIAL_ENVIRONMENT, EnvironmentType.WATER_ENVIRONMENT};
+	public EnvironmentType[] getEnvironments() {
+		return environments;
+	}
+
 	//Animations
 	private Animation animSwimDown, animSwimUp, animSwimLeft, animSwimRight;
 
@@ -45,10 +50,6 @@ public class Turtle extends Animal implements Swimmable, Walkable {
 		setFoodType(new FoodType("turtlefood"));
 	}
 	
-	@Override
-	public String getEnvironments() {
-		return "water dirt grass";
-	}
 	
 	public void setSwimAnimations(Animation animDown, Animation animUp, Animation animLeft, Animation animRight) {
 		this.animSwimDown = animDown;
@@ -80,7 +81,7 @@ public class Turtle extends Animal implements Swimmable, Walkable {
 		
 		sleep();
 		
-		if (getCurrentEnvironment() == "water") {
+		if (getCurrentEnvironmentType() == EnvironmentType.WATER_ENVIRONMENT) {
 			swim();
 		} else {
 			walk();
@@ -117,9 +118,9 @@ public class Turtle extends Animal implements Swimmable, Walkable {
 		if (isSleeping())
 			return getAnimSleep().getCurrentFrame();
 		
-		String env = getCurrentEnvironment();
+		EnvironmentType env = getCurrentEnvironmentType();
 
-		if (!env.equals("water")) {
+		if (env != EnvironmentType.WATER_ENVIRONMENT) {
 			if(getxMove() < 0){
 				return getAnimLeft().getCurrentFrame();
 			} else if (getxMove() > 0){
@@ -152,5 +153,6 @@ public class Turtle extends Animal implements Swimmable, Walkable {
 	public long getTimeBetweenSleeps() {
 		return 3000;
 	}
+	
 	
 }

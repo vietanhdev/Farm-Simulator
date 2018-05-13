@@ -4,8 +4,8 @@ import dev.hust.funnyfarm.gfx.Assets;
 
 public class GrassTile extends Tile {
 
-	public GrassTile(int id, String name) {
-		super(Assets.grass, id, name);
+	GrassTile(int id, EnvironmentType type) {
+		super(Assets.grass, id, type);
 	}
 
 }

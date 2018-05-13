@@ -7,8 +7,7 @@ import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.EntityManager;
 import dev.hust.funnyfarm.entities.creatures.animals.*;
 import dev.hust.funnyfarm.entities.creatures.plants.*;
-import dev.hust.funnyfarm.entities.statics.Mannequin;
-import dev.hust.funnyfarm.items.ItemManager;
+import dev.hust.funnyfarm.entities.statics.*;
 import dev.hust.funnyfarm.tiles.Tile;
 import dev.hust.funnyfarm.utils.Utils;
 import sun.applet.Main;
@@ -20,8 +19,6 @@ public class World {
 	private int[][] tiles;
 	//Entities
 	private EntityManager entityManager;
-	// Item
-	private ItemManager itemManager;
 	
 	public World(Handler handler, String path){
 		this.handler = handler;
@@ -101,14 +98,12 @@ public class World {
 		entityManager.addEntity(new Mannequin(handler, 750, 300));
 		entityManager.addEntity(new Mannequin(handler, 1100, 300));
 
-		itemManager = new ItemManager(handler);
 		
 		loadWorld(path);
 		
 	}
 	
 	public void tick(){
-		itemManager.tick();
 		entityManager.tick();
 	}
 	
@@ -124,8 +119,7 @@ public class World {
 						(int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
 			}
 		}
-		// Items
-		itemManager.render(g);
+
 		//Entities
 		entityManager.render(g);
 		
@@ -179,14 +173,7 @@ public class World {
 		this.handler = handler;
 	}
 
-	public ItemManager getItemManager() {
-		return itemManager;
-	}
 
-	public void setItemManager(ItemManager itemManager) {
-		this.itemManager = itemManager;
-	}
-	
 }
 
 

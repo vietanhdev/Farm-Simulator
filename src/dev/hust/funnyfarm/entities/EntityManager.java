@@ -6,9 +6,9 @@ import java.util.ArrayList;
 //import java.util.Comparator;
 import java.util.Iterator;
 
-import dev.hust.funnyfarm.FoodType;
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.creatures.Creature;
+import dev.hust.funnyfarm.entities.creatures.FoodType;
 import dev.hust.funnyfarm.entities.creatures.animals.*;
 import dev.hust.funnyfarm.entities.creatures.plants.*;
 import dev.hust.funnyfarm.states.GameState;
