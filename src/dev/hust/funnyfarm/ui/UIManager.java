@@ -73,9 +73,9 @@ public class UIManager {
 		g.drawString("More", 10*64 + 2, 50);
 		
 		g.setColor(Color.decode("#54442C"));
-		g.fillRect(0, 64, 8*64, 40);
+		g.fillRect(0, 64, 19*64 - 20, 40);
 		g.setColor(Color.decode("#F5FECD"));
-		g.fillRect(2, 66, 8*64-4, 40-4);
+		g.fillRect(2, 66, 19*64-4 - 20, 40-4);
 		
 		g.setColor(Color.BLACK);
 		g.drawString("Time", 5, 64 + 16);
@@ -90,6 +90,29 @@ public class UIManager {
 		g.fillRect(350, 66, 150, 40-4);
 		g.setColor(Color.BLACK);
 		g.drawString("" + getHandler().getGame().getSimTime(), 352, 64 + 25);
+		
+		g.drawString("Total need for farm:", 505, 64 + 25);
+		
+		g.setColor(Color.decode("#FFFFFF"));
+		g.fillRect(700, 66, 300, 40-4);
+		g.drawImage(Assets.hamburger, 
+				700,
+				66,
+				32, 32, null);
+		
+		g.drawImage(Assets.water_drop, 
+				850,
+				66,
+				32, 32, null);
+		
+		g.setColor(Color.BLACK);
+		
+		g.drawString("" + getHandler().getWorld().getEntityManager().getTotalFoodNeed(), 760, 64 + 25);
+		g.drawString("" + getHandler().getWorld().getEntityManager().getTotalWaterNeed(), 910, 64 + 25);
+		
+		
+		g.drawString("Feed All", 1010, 64 + 25);
+		
 		
 		for(UIObject o : objects)
 			o.render(g);
@@ -300,5 +323,26 @@ public class UIManager {
 			}
 		});
 		this.addObject(btnAddFlower);
+		
+		UIImageButton btnFeedAll = new UIImageButton("Feed All", 1100, 64, 40, 40, Assets.btn_hamburger);
+		btnFeedAll.setClicker(new ClickListener() {
+			@Override
+			public void onClick() {
+				getHandler().getWorld().getEntityManager().feedAllCreature();
+			}
+		});
+		this.addObject(btnFeedAll);
+		
+		
+		UIImageButton btnWaterAll = new UIImageButton("Water All", 1100+40, 64, 40, 40, Assets.btn_water_drop);
+		btnWaterAll.setClicker(new ClickListener() {
+			@Override
+			public void onClick() {
+				getHandler().getWorld().getEntityManager().waterAllCreature();
+			}
+		});
+		this.addObject(btnWaterAll);
+		
+		
 	}
 }

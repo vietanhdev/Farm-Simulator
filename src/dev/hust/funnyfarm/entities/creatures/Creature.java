@@ -137,7 +137,7 @@ public abstract class Creature extends Entity {
 
 		if (getHealth() < 1) {
 			die();
-			isLiving = false;
+			setLiving(false);
 		}
 		
 		
@@ -181,6 +181,7 @@ public abstract class Creature extends Entity {
 	public boolean eat(FoodType ft) {
 		if (ft.getName().equals(getFoodType().getName())) {
 			setFood(DEFAULT_FOOD);
+			setHealth(getHealth()+10);
 			return true;
 		} else {
 			return false;
@@ -257,6 +258,14 @@ public abstract class Creature extends Entity {
 
 	public void setTimeToDisapear(long timeToDisapear) {
 		this.timeToDisapear = timeToDisapear;
+	}
+	
+	public int getFoodNeed() {
+		return (int)(DEFAULT_FOOD - getFood());
+	}
+	
+	public int getWaterNeed() {
+		return (int)(DEFAULT_WATER - getWater());
 	}
 	
 }

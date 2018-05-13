@@ -176,4 +176,48 @@ public class EntityManager {
 		this.entities = entities;
 	}
 
+	public int getTotalFoodNeed() {
+		int totalFoodNeed = 0;
+		Iterator<Entity> it = entities.iterator();
+		while(it.hasNext()){
+			Entity e = it.next();
+			if (e instanceof Creature) {
+				totalFoodNeed += ((Creature) e).getFoodNeed();
+			}
+		}
+		return totalFoodNeed;
+	}
+	
+	public int getTotalWaterNeed() {
+		int totalWaterNeed = 0;
+		Iterator<Entity> it = entities.iterator();
+		while(it.hasNext()){
+			Entity e = it.next();
+			if (e instanceof Creature) {
+				totalWaterNeed += ((Creature) e).getWaterNeed();
+			}
+		}
+		return totalWaterNeed;
+	}
+
+	public void feedAllCreature() {
+		Iterator<Entity> it = entities.iterator();
+		while(it.hasNext()){
+			Entity e = it.next();
+			if (e instanceof Creature) {
+				((Creature) e).eat(((Creature) e).getFoodType());
+			}
+		}
+	}
+	
+	public void waterAllCreature() {
+		Iterator<Entity> it = entities.iterator();
+		while(it.hasNext()){
+			Entity e = it.next();
+			if (e instanceof Creature) {
+				((Creature) e).drink();
+			}
+		}
+	}
+
 }

@@ -30,6 +30,8 @@ public class Assets {
 	public static BufferedImage[] btn_add;
 	public static BufferedImage[] btn_sub;
 	public static BufferedImage[] btn_reset;
+	public static BufferedImage[] btn_hamburger;
+	public static BufferedImage[] btn_water_drop;
 
 	public static void init(){
 		font28 = FontLoader.loadFont("/fonts/slkscr.ttf", 28);
@@ -67,6 +69,16 @@ public class Assets {
 		btn_reset[0] = buttonSheet.crop(0, 5*64, 64, 64);
 		btn_reset[1] = buttonSheet.crop(64, 5*64, 64, 64);
 		btn_reset[2] = buttonSheet.crop(64*2, 5*64, 64, 64);
+		
+		btn_hamburger = new BufferedImage[3];
+		btn_hamburger[0] = buttonSheet.crop(0, 6*64, 64, 64);
+		btn_hamburger[1] = buttonSheet.crop(64, 6*64, 64, 64);
+		btn_hamburger[2] = buttonSheet.crop(64*2, 6*64, 64, 64);
+		
+		btn_water_drop = new BufferedImage[3];
+		btn_water_drop[0] = buttonSheet.crop(0, 7*64, 64, 64);
+		btn_water_drop[1] = buttonSheet.crop(64, 7*64, 64, 64);
+		btn_water_drop[2] = buttonSheet.crop(64*2, 7*64, 64, 64);
 		
 		
 		wood = sheet.crop(width, height, width, height);
