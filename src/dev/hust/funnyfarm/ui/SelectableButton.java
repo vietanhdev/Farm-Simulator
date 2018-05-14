@@ -22,11 +22,11 @@ public class SelectableButton extends UIImageButton {
 	@Override
 	public void render(Graphics g) {
 		if (isSelected())
-			g.drawImage(getImages()[2], (int) x, (int) y, width, height, null);
+			g.drawImage(getImages()[2], (int) getX(), (int) getY(), getWidth(), getHeight(), null);
 		else if(isHovering())
-			g.drawImage(getImages()[1], (int) x, (int) y, width, height, null);
+			g.drawImage(getImages()[1], (int) getX(), (int) getY(), getWidth(), getHeight(), null);
 		else
-			g.drawImage(getImages()[0], (int) x, (int) y, width, height, null);
+			g.drawImage(getImages()[0], (int) getX(), (int) getY(), getWidth(), getHeight(), null);
 	}
 
 	public boolean isSelected() {

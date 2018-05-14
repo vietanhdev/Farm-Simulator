@@ -26,10 +26,10 @@ public class UIImageButton extends UIObject {
 
 	@Override
 	public void render(Graphics g) {
-		if(hovering)
-			g.drawImage(getImages()[1], (int) x, (int) y, width, height, null);
+		if(isHovering())
+			g.drawImage(getImages()[1], (int) getX(), (int) getY(), getWidth(), getHeight(), null);
 		else
-			g.drawImage(getImages()[0], (int) x, (int) y, width, height, null);
+			g.drawImage(getImages()[0], (int) getX(), (int) getY(), getWidth(), getHeight(), null);
 	}
 
 	@Override

@@ -6,10 +6,10 @@ import java.awt.event.MouseEvent;
 
 public abstract class UIObject {
 	
-	protected float x, y;
-	protected int width, height;
-	protected Rectangle bounds;
-	protected boolean hovering = false;
+	private float x, y;
+	private int width, height;
+	private Rectangle bounds;
+	private boolean hovering;
 	
 	public UIObject(float x, float y, int width, int height){
 		this.x = x;
@@ -17,6 +17,7 @@ public abstract class UIObject {
 		this.width = width;
 		this.height = height;
 		bounds = new Rectangle((int) x, (int) y, width, height);
+		this.hovering = false;
 	}
 	
 	public abstract void tick();

@@ -30,9 +30,9 @@ public abstract class Creature extends Entity {
 	public static final int DEFAULT_CREATURE_WIDTH = 64,
 			DEFAULT_CREATURE_HEIGHT = 64;
 	
-	public double healthLostPerTick = 0.005;
-	public double foodLostPerTick = 0.009;
-	public double waterLostPerTick = 0.001;
+	private double healthLostPerTick = 0.005;
+	private double foodLostPerTick = 0.009;
+	private double waterLostPerTick = 0.001;
 
 	public Creature(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);

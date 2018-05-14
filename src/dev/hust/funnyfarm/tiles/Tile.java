@@ -27,8 +27,8 @@ public class Tile {
 	//CLASS
 	
 	public static final int TILEWIDTH = 64, TILEHEIGHT = 64;
-	protected BufferedImage texture;
-	protected final int id;
+	private BufferedImage texture;
+	private final int id;
 	
 	public Tile(BufferedImage texture, int id, EnvironmentType type){
 		this.texture = texture;
