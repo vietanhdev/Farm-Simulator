@@ -12,8 +12,6 @@ import dev.hust.funnyfarm.tiles.Tile;
 
 public abstract class Animal extends Creature {
 	
-	private static float DEFAULT_SPEED = 1.0f;
-	
 	private float speed;
 	private float xMove, yMove;
 	
@@ -30,7 +28,7 @@ public abstract class Animal extends Creature {
 
 	public Animal(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);
-		speed = DEFAULT_SPEED;
+		speed = getDefaultSpeed();
 		xMove = 0;
 		yMove = 0;
 	}
@@ -284,6 +282,11 @@ public abstract class Animal extends Creature {
 	}
 	
 	public abstract  EnvironmentType[] getEnvironments();
+
+
+	abstract public float getDefaultSpeed();
+
+	abstract public void setDefaultSpeed(float speed);
 	
 	
 }

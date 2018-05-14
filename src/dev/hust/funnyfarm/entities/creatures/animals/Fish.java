@@ -1,5 +1,6 @@
 package dev.hust.funnyfarm.entities.creatures.animals;
 
+
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.creatures.FoodType;
 import dev.hust.funnyfarm.gfx.Animation;
@@ -8,6 +9,8 @@ import dev.hust.funnyfarm.tiles.EnvironmentType;
 
 
 public class Fish extends Animal implements Swimmable {
+	
+	private static float DEFAULT_SPEED = 0.5f;
 
 	private static EnvironmentType[] environments = {EnvironmentType.WATER_ENVIRONMENT};
 	public EnvironmentType[] getEnvironments() {
@@ -78,6 +81,14 @@ public class Fish extends Animal implements Swimmable {
 	@Override
 	public long getTimeBetweenSleeps() {
 		return 2000;
+	}
+	
+	public float getDefaultSpeed() {
+		return DEFAULT_SPEED;
+	}
+
+	public void setDefaultSpeed(float speed) {
+		DEFAULT_SPEED = speed;
 	}
 	
 

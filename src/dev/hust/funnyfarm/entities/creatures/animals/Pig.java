@@ -1,5 +1,6 @@
 package dev.hust.funnyfarm.entities.creatures.animals;
 
+
 import dev.hust.funnyfarm.Handler;
 import dev.hust.funnyfarm.entities.creatures.FoodType;
 import dev.hust.funnyfarm.gfx.Animation;
@@ -9,6 +10,8 @@ import dev.hust.funnyfarm.tiles.EnvironmentType;
 
 public class Pig extends Animal implements Walkable, Soundable  {
 	
+	
+	private static float DEFAULT_SPEED = 0.5f;
 
 	private static EnvironmentType[] environments = {EnvironmentType.TERRESTIAL_ENVIRONMENT};
 	public EnvironmentType[] getEnvironments() {
@@ -56,6 +59,14 @@ public class Pig extends Animal implements Walkable, Soundable  {
 	@Override
 	public void sound() {
 		Assets.sound_pig.play();
+	}
+	
+	public float getDefaultSpeed() {
+		return DEFAULT_SPEED;
+	}
+
+	public void setDefaultSpeed(float speed) {
+		DEFAULT_SPEED = speed;
 	}
 
 }

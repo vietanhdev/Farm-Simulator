@@ -9,6 +9,8 @@ import dev.hust.funnyfarm.tiles.EnvironmentType;
 
 public class Cow extends Animal  implements Walkable, Soundable {
 	
+	private static float DEFAULT_SPEED = 0.5f;
+	
 	private static EnvironmentType[] environments = {EnvironmentType.TERRESTIAL_ENVIRONMENT};
 	public EnvironmentType[] getEnvironments() {
 		return environments;
@@ -53,6 +55,14 @@ public class Cow extends Animal  implements Walkable, Soundable {
 	@Override
 	public void sound() {
 		Assets.sound_cow.play();
+	}
+	
+	public float getDefaultSpeed() {
+		return DEFAULT_SPEED;
+	}
+
+	public void setDefaultSpeed(float speed) {
+		DEFAULT_SPEED = speed;
 	}
 	
 

@@ -13,6 +13,8 @@ import dev.hust.funnyfarm.tiles.EnvironmentType;
 
 public class Turtle extends Animal implements Swimmable, Walkable {
 	
+	private static float DEFAULT_SPEED = 1.0f;
+	
 	private static EnvironmentType[] environments = {EnvironmentType.TERRESTIAL_ENVIRONMENT, EnvironmentType.WATER_ENVIRONMENT};
 	public EnvironmentType[] getEnvironments() {
 		return environments;
@@ -152,6 +154,14 @@ public class Turtle extends Animal implements Swimmable, Walkable {
 	@Override
 	public long getTimeBetweenSleeps() {
 		return 3000;
+	}
+	
+	public float getDefaultSpeed() {
+		return DEFAULT_SPEED;
+	}
+
+	public void setDefaultSpeed(float speed) {
+		DEFAULT_SPEED = speed;
 	}
 	
 	
