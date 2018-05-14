@@ -12,7 +12,7 @@ import dev.hust.funnyfarm.tiles.Tile;
 
 public abstract class Animal extends Creature {
 	
-	public static float DEFAULT_SPEED = 1.0f;
+	private static float DEFAULT_SPEED = 1.0f;
 	
 	private float speed;
 	private float xMove, yMove;
@@ -154,23 +154,23 @@ public abstract class Animal extends Creature {
 	
 	public void moveX(){
 		if(xMove > 0){//Moving right
-			int tx = (int) (getX() + xMove + getBounds().x + getBounds().width) / Tile.TILEWIDTH;
+			int tx = (int) (getX() + xMove + getBounds().x + getBounds().width) / Tile.getTileWidth();
 			
-			if(!collisionWithTile(tx, (int) (getY() + getBounds().y) / Tile.TILEHEIGHT) &&
-					!collisionWithTile(tx, (int) (getY() + getBounds().y + getBounds().height) / Tile.TILEHEIGHT)){
+			if(!collisionWithTile(tx, (int) (getY() + getBounds().y) / Tile.getTileHeight()) &&
+					!collisionWithTile(tx, (int) (getY() + getBounds().y + getBounds().height) / Tile.getTileHeight())){
 				setX(getX() + xMove);
 			}else{
-				setX(tx * Tile.TILEWIDTH - getBounds().x - getBounds().width - 1);
+				setX(tx * Tile.getTileWidth() - getBounds().x - getBounds().width - 1);
 			}
 			
 		}else if(xMove < 0){//Moving left
-			int tx = (int) (getX() + xMove + getBounds().x) / Tile.TILEWIDTH;
+			int tx = (int) (getX() + xMove + getBounds().x) / Tile.getTileWidth();
 			
-			if(!collisionWithTile(tx, (int) (getY() + getBounds().y) / Tile.TILEHEIGHT) &&
-					!collisionWithTile(tx, (int) (getY() + getBounds().y + getBounds().height) / Tile.TILEHEIGHT)){
+			if(!collisionWithTile(tx, (int) (getY() + getBounds().y) / Tile.getTileHeight()) &&
+					!collisionWithTile(tx, (int) (getY() + getBounds().y + getBounds().height) / Tile.getTileHeight())){
 				setX(getX() + xMove);
 			}else{
-				setX(tx * Tile.TILEWIDTH + Tile.TILEWIDTH - getBounds().x);
+				setX(tx * Tile.getTileWidth() + Tile.getTileWidth() - getBounds().x);
 			}
 			
 		}
@@ -178,23 +178,23 @@ public abstract class Animal extends Creature {
 	
 	public void moveY(){
 		if (yMove < 0) { //Up
-			int ty = (int) (getY() + yMove + getBounds().y) / Tile.TILEHEIGHT;
+			int ty = (int) (getY() + yMove + getBounds().y) / Tile.getTileHeight();
 			
-			if(!collisionWithTile((int) (getX() + getBounds().x) / Tile.TILEWIDTH, ty) &&
-					!collisionWithTile((int) (getX() + getBounds().x + getBounds().width) / Tile.TILEWIDTH, ty)){
+			if(!collisionWithTile((int) (getX() + getBounds().x) / Tile.getTileWidth(), ty) &&
+					!collisionWithTile((int) (getX() + getBounds().x + getBounds().width) / Tile.getTileWidth(), ty)){
 				setY(getY() + yMove);
 			}else{
-				setY(ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - getBounds().y);
+				setY(ty * Tile.getTileHeight() + Tile.getTileHeight() - getBounds().y);
 			}
 			
 		} else if (yMove > 0){ //Down
-			int ty = (int) (getY() + yMove + getBounds().y + getBounds().height) / Tile.TILEHEIGHT;
+			int ty = (int) (getY() + yMove + getBounds().y + getBounds().height) / Tile.getTileHeight();
 			
-			if(!collisionWithTile((int) (getX() + getBounds().x) / Tile.TILEWIDTH, ty) &&
-					!collisionWithTile((int) (getX() + getBounds().x + getBounds().width) / Tile.TILEWIDTH, ty)){
+			if(!collisionWithTile((int) (getX() + getBounds().x) / Tile.getTileWidth(), ty) &&
+					!collisionWithTile((int) (getX() + getBounds().x + getBounds().width) / Tile.getTileWidth(), ty)){
 				setY(getY() + yMove);
 			}else{
-				setY(ty * Tile.TILEHEIGHT - getBounds().y - getBounds().height - 1);
+				setY(ty * Tile.getTileHeight() - getBounds().y - getBounds().height - 1);
 			}
 			
 		}

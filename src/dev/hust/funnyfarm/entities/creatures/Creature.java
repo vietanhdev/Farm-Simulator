@@ -23,11 +23,11 @@ public abstract class Creature extends Entity {
 	private long age;
 	
 	private long timeToDisapear;
-	public static final long DEFAULT_TIME_TO_DISAPEAR_AFTER_DEAD = 500;
-	public static final double DEFAULT_HEALTH = 100.0;
-	public static final double DEFAULT_FOOD = 100.0;
-	public static final double DEFAULT_WATER = 100.0;
-	public static final int DEFAULT_CREATURE_WIDTH = 64,
+	private static final long DEFAULT_TIME_TO_DISAPEAR_AFTER_DEAD = 500;
+	private static final double DEFAULT_HEALTH = 100.0;
+	private static final double DEFAULT_FOOD = 100.0;
+	private static final double DEFAULT_WATER = 100.0;
+	private static final int DEFAULT_CREATURE_WIDTH = 64,
 			DEFAULT_CREATURE_HEIGHT = 64;
 	
 	private double healthLostPerTick = 0.005;
@@ -170,8 +170,8 @@ public abstract class Creature extends Entity {
 	}
 	
 	public EnvironmentType getCurrentEnvironmentType() {
-		int tileX = (int) (getX() + getBounds().x) / Tile.TILEWIDTH;
-		int tileY = (int) (getY() + getBounds().y) / Tile.TILEHEIGHT;
+		int tileX = (int) (getX() + getBounds().x) / Tile.getTileWidth();
+		int tileY = (int) (getY() + getBounds().y) / Tile.getTileHeight();
 		return getHandler().getWorld().getTile(tileX, tileY).getEnvironmentType();
 	}
 	
@@ -280,6 +280,16 @@ public abstract class Creature extends Entity {
 
 
 	public abstract  EnvironmentType[] getEnvironments();
+
+
+	public static int getDefaultCreatureHeight() {
+		return DEFAULT_CREATURE_HEIGHT;
+	}
+
+
+	public static int getDefaultCreatureWidth() {
+		return DEFAULT_CREATURE_WIDTH;
+	}
 
 	
 }

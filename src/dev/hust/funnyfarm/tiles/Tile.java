@@ -26,7 +26,9 @@ public class Tile {
 	
 	//CLASS
 	
-	public static final int TILEWIDTH = 64, TILEHEIGHT = 64;
+	private static final int TILEWIDTH = 64, TILEHEIGHT = 64;
+
+
 	private BufferedImage texture;
 	private final int id;
 	
@@ -49,6 +51,13 @@ public class Tile {
 	
 	public int getId(){
 		return id;
+	}
+	
+	public static int getTileHeight() {
+		return TILEHEIGHT;
+	}
+	public static int getTileWidth() {
+		return TILEWIDTH;
 	}
 	
 }

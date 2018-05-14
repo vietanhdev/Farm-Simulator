@@ -108,15 +108,15 @@ public class World {
 	}
 	
 	public void render(Graphics g){
-		int xStart = (int) Math.max(0, handler.getGameCamera().getxOffset() / Tile.TILEWIDTH);
-		int xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.TILEWIDTH + 1);
-		int yStart = (int) Math.max(0, handler.getGameCamera().getyOffset() / Tile.TILEHEIGHT);
-		int yEnd = (int) Math.min(height, (handler.getGameCamera().getyOffset() + handler.getHeight()) / Tile.TILEHEIGHT + 1);
+		int xStart = (int) Math.max(0, handler.getGameCamera().getxOffset() / Tile.getTileWidth());
+		int xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.getTileWidth() + 1);
+		int yStart = (int) Math.max(0, handler.getGameCamera().getyOffset() / Tile.getTileHeight());
+		int yEnd = (int) Math.min(height, (handler.getGameCamera().getyOffset() + handler.getHeight()) / Tile.getTileHeight() + 1);
 		
 		for(int y = yStart;y < yEnd;y++){
 			for(int x = xStart;x < xEnd;x++){
-				getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - handler.getGameCamera().getxOffset()),
-						(int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
+				getTile(x, y).render(g, (int) (x * Tile.getTileWidth() - handler.getGameCamera().getxOffset()),
+						(int) (y * Tile.getTileHeight() - handler.getGameCamera().getyOffset()));
 			}
 		}
 

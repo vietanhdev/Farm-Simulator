@@ -9,7 +9,7 @@ import dev.hust.funnyfarm.tiles.Tile;
 public class Mannequin extends StaticEntity {
 
 	public Mannequin(Handler handler, float x, float y) {
-		super(handler, x, y, Tile.TILEWIDTH, Tile.TILEHEIGHT * 2);
+		super(handler, x, y, Tile.getTileWidth(), Tile.getTileHeight() * 2);
 		
 		setBounds(10,
 				(int) (getHeight() / 1.5f),

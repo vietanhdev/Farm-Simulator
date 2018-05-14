@@ -14,7 +14,7 @@ public  class Flower extends Plant {
 	}
 
 	public Flower(Handler handler, float x, float y) {
-		super(handler, x, y, DEFAULT_CREATURE_WIDTH, DEFAULT_CREATURE_HEIGHT);
+		super(handler, x, y, getDefaultCreatureWidth(), getDefaultCreatureHeight());
 		
 		//Animations
 		Animation animBig = new Animation(500, Assets.flower_big);

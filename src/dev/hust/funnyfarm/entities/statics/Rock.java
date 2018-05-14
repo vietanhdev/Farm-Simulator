@@ -9,7 +9,7 @@ import dev.hust.funnyfarm.tiles.Tile;
 public class Rock extends StaticEntity {
 
 	public Rock(Handler handler, float x, float y) {
-		super(handler, x, y, Tile.TILEWIDTH, Tile.TILEHEIGHT);
+		super(handler, x, y, Tile.getTileWidth(), Tile.getTileHeight());
 		
 		setBounds(3,
 				(int) (getHeight() / 2f),

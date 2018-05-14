@@ -22,7 +22,7 @@ public class Turtle extends Animal implements Swimmable, Walkable {
 	private Animation animSwimDown, animSwimUp, animSwimLeft, animSwimRight;
 
 	public Turtle(Handler handler, float x, float y) {
-		super(handler, x, y, Animal.DEFAULT_CREATURE_WIDTH, Animal.DEFAULT_CREATURE_HEIGHT);
+		super(handler, x, y, Animal.getDefaultCreatureWidth(), Animal.getDefaultCreatureHeight());
 		
 		setSpeed(1.0f);
 		// Body update info

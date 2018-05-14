@@ -17,7 +17,7 @@ public class Horse extends Animal implements Walkable, Soundable  {
 	
 	
 	public Horse(Handler handler, float x, float y) {
-		super(handler, x, y, DEFAULT_CREATURE_WIDTH, DEFAULT_CREATURE_HEIGHT);
+		super(handler, x, y, getDefaultCreatureWidth(), getDefaultCreatureHeight());
 		
 		setBounds(0,0,64,64);
 		
